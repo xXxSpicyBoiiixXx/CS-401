@@ -14,6 +14,8 @@ REVISION: --
 
 package Lab03;
 
+
+// Message outputed to the user if there is a invalid date inputed
 public class DateOutOfBoundsException extends Exception
 {
   public DateOutOfBoundsException()
