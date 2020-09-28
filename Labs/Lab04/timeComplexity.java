@@ -14,13 +14,16 @@ REVISION: --
 
 package Lab04;
 
-import java.util.Scanner;
-import java.util.Random;
-import java.lang.Math;
+// import java.util.Random; <- Only use this if you want to try the randomization of the arrays and matrix.
 
 /*
  * I'm just going to assume the methods are whatever we want really.... 
- * 
+ * For time sakes since I am currently doing some intense research at the moment,
+ *  I had to conform to the bounds of the assignment. 
+ * I have commented out the usage of what I was trying to accomplish. 
+ * First method 1 should be that of generating a randomized array 
+ * and method two would be conducting the same but for a 2 dimesnaional 
+ * array. Then both methods would print out what was in the array.  
  */
 
 public class timeComplexity {
@@ -28,21 +31,30 @@ public class timeComplexity {
 	
 	public void method1(int n) {
 		
-		int oneD_arr[] = new int[n];
+		long startTime = System.nanoTime();
+		// One dimensional array set up 
+		/*int oneD_arr[] = new int[n];
 		Random r_num = new Random();
 		
 		for (int i = 0; i < n; i++) {
 			oneD_arr[i] = r_num.nextInt(1000000);
 			System.out.print(oneD_arr[i] + " ");
+		*/
+		
+		System.out.println("Method 1 \n");
+		
+		for(int i = 0; i < n; i++) {
+			System.out.println("Loop: " + i);
 		}
+		long elapsedTimeMillis = System.nanoTime() - startTime;
+		System.out.println("Total execution time: " + (elapsedTimeMillis) + " nanoseconds");
 	}
-	
-	
-	
 
 	public void method2(int n) {
 		
-		int twoD_arr[][] = new int[n][n];
+		long startTime = System.nanoTime();
+		// Two dimesional array setup
+		/*int twoD_arr[][] = new int[n][n];
 		Random r_num = new Random();
 		
 		for (int i = 0; i < n; i++) {
@@ -51,7 +63,19 @@ public class timeComplexity {
 			System.out.print(twoD_arr[i][j] + " ");
 			}
 			System.out.println();
+			*/ 
+		System.out.println("Method 2 \n");
+		
+		for (int i = 0; i < n; i++) {
+			 System.out.println("Outer Loop:" + i);
+			
+			for(int j = 0; j < n; j++) {
+				 System.out.println("Inner Loop:" + j);
+			}
+			System.out.println();
 		}
+		long elapsedTimeMillis = System.nanoTime() - startTime;
+		System.out.println("Total execution time: " + (elapsedTimeMillis) + " nanoseconds");
 	}
 	
 	/*
@@ -62,6 +86,28 @@ public class timeComplexity {
 	 * for the desired value e.g. index 1,2,...,n until it finds the value, if
 	 * not then the function returns a -1
 	 */
+	
+	public int search(int arr[], int x)
+	{
+		int n = arr.length;
+		long startTime = System.nanoTime();
+		
+		for(int i =0; i < n; i++)
+		{
+			if(arr[i] == x)
+			{	long elapsedTimeMillis = System.nanoTime() - startTime;
+				System.out.println("Total execution time: " + (elapsedTimeMillis) + " nanoseconds");
+				return i;
+			}
+		}
+		
+		long elapsedTimeMillis = System.nanoTime() - startTime;
+		System.out.println("Total execution time: " + (elapsedTimeMillis) + " nanoseconds");
+		return -1;
+	}
+	
+	// Searching through a 1D array
+	/*
 	public int search1D(int arr[], int x)
 	{
 		int n = arr.length; 
@@ -73,8 +119,10 @@ public class timeComplexity {
 		}
 		return -1;
 	}
+	*/
 	
-	public int search2D(int arr[][], int x)
+	// Searching through a 2D array. 
+	/*public int search2D(int arr[][], int x)
 	{
 		int n = arr.length; 
 		for(int i = 0; i < n; i++)
@@ -90,6 +138,7 @@ public class timeComplexity {
 		return -1;
 	}
 	
+	*/ 
 	
 	/*
 	 * Binary search is a searching through a SORTED array. The key term here
@@ -106,23 +155,33 @@ public class timeComplexity {
 		int low = 0;
 		int high = sortedArray.length;
 		
+		long startTime = System.nanoTime();
+		
 		while (low <= high) {
 			int mid = (low + high) / 2;
 			if (sortedArray[mid] < value) {
 				low = mid + 1;
+				long elapsedTimeMillis = System.nanoTime() - startTime;
+				System.out.println("Total execution time: " + (elapsedTimeMillis) + " nanoseconds");
 			}
 			else if (sortedArray[mid] > value) {
 				high = mid - 1;
+				long elapsedTimeMillis = System.nanoTime() - startTime;
+				System.out.println("Total execution time: " + (elapsedTimeMillis) + " nanoseconds");
 			}
 			else if(sortedArray[mid] == value) {
 				index = mid;
+				long elapsedTimeMillis = System.nanoTime() - startTime;
+				System.out.println("Total execution time: " + (elapsedTimeMillis) + " nanoseconds");
 				break;
 			}
 		}
 		return index;
 	}
 	
-	public static void search(int[][] mat, int fromRow, int toRow, int fromCol, int toCol, int input) { 
+// Implemntation of a binary search on a 2D array. 
+	
+/*	public static void search(int[][] mat, int fromRow, int toRow, int fromCol, int toCol, int input) { 
 		// Find middle and compare with middle  
 		int i = fromRow + (toRow-fromRow )/2; 
 		int j = fromCol + (toCol-fromCol )/2; 
@@ -163,8 +222,11 @@ public class timeComplexity {
 			} 
 		} 
 	} 
+*/
 	
-	public int fibonaccianSearch(int arr[], int x, int n)
+
+// Fibonnaccian Search for linear array.	
+/*	public int fibonaccianSearch(int arr[], int x, int n)
 	{
 		
 		int fbN2 = 0; // (n-2)th Fibonacci number 
@@ -181,11 +243,9 @@ public class timeComplexity {
 			fbN1 = fbN;
 			fbN = fbN2 + fbN1;
 		}
-		
-		/* 
+ 
 		 * If there are elements to be inspected. Note that we compare arr[fbM2] with x.
 		 * When fbN becomes 1, then fbN2 becomes 0
-		 */
 		while(fbN > 1) 
 		{
 			int i = Math.min(offset + fbN2, n-1);
@@ -218,14 +278,5 @@ public class timeComplexity {
 		
 		return -1; 
 	}
-
-	public static void main(String[] args) {
-		// timeComplexity tc = new timeComplexity();
-		int arr[][] = new int[5][5];
-		
-		System.out.print(arr.length);
-			
-		
-		
-	}
+*/
 }
