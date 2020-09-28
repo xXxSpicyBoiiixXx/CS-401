@@ -14,11 +14,11 @@
 
 * Please note, this depends are data stucture and the algorithm implmented. 
 
-![Chart1](/Users/spicyboiii/Desktop/1.png)
+![Chart1](img/1.png)
 
-![Chart2](/Users/spicyboiii/Desktop/2.png)
+![Chart2](img/2.png)
 
-![Chart3](/Users/spicyboiii/Desktop/3.png)
+![Chart3](img/3.png)
 
 The link for a reference to more of the same as cheat sheet for future interviews is linked below as well. 
 
