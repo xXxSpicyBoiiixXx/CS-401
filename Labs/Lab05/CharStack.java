@@ -16,19 +16,22 @@ package Lab05;
 //Implement your own stack, CharStack, using Linked list.
 //You shall not use the default Linked List class from Java. 
 //Element in CharStack is CharNode which contain a char.
-public class CharStack {
-
-protected CharNode top;
+public class CharStack<Test> {
+	
+	CharNode<Test> top;
+//protected CharNode<Test> top;
     
 	public CharStack() {
+		
         top = null;
     }
 	
 	// Initialize a new CharStack with a char. 
 	// It means the stack will contain an element, a CharNode which carries the input char. 
-	public CharStack(char c) {
+	public CharStack(Test data) {
         // 1. Filling your code here
 		
+		}
 		// 1. End of code
     }
 	
@@ -38,6 +41,7 @@ protected CharNode top;
 	// Do not modify the input CharStack
 	public CharStack(CharStack cs) {
 		// 2. Filling your code here
+		
 		
 		// 2. End of code
     }
@@ -51,9 +55,16 @@ protected CharNode top;
 		// 3. End of code
     }
     // push a char to the top of the stack
-    public void push(char x) {
+    public void push(char x) { // Big O (1)
         // 4. Filling your code here
+		CharNode<Test> newNode = new CharNode<>(data, null);
 		
+		if (top == null) {
+			top = newNode;
+		}
+		else {
+			newNode.setNode(top);
+			top = newNode;}
 		// 4. End of code
     }
     
@@ -75,6 +86,7 @@ protected CharNode top;
 	// return true if the stack is empty, otherwise, return false;
     public boolean isEmpty() {
     	// 7. Filling your code here
+    	
 		
 		// 7. End of code
     }
