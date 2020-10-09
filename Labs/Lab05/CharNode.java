@@ -15,25 +15,6 @@ REVISION: --
 package Lab05;
 
 public class CharNode<Test> {
-	// Instead of implement a single function as before, You are required to design and implement the whole class. 
-		// Design and implement your CharNode. It's a link node which contains a char
-		// You can define any attributes or methods on your own
-		// You will use your CharNode class in CharStack.
-		// Filling your code here
-		
-	//variables 
-	//private char info;
-	//private CharNode next;
-	
-	//consturctor
-	// CharNode();
-	
-	//get/set
-	//getInfo
-	//setInfo
-	//getNext
-	//setNext
-	
 	
 	private Test data; 
 	

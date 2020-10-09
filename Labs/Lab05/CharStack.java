@@ -18,7 +18,7 @@ package Lab05;
 //Element in CharStack is CharNode which contain a char.
 public class CharStack<Test> {
 	
-	CharNode<Test> top;
+	private CharNode<Test> top;
 //protected CharNode<Test> top;
     
 	public CharStack() {
@@ -74,27 +74,34 @@ public class CharStack<Test> {
 	// It means when a stack is empty,  do nothing.
     public void pop() {
 		// 5. Filling your code here
+		if(top == null) {
+			throw new StackUnderflowException("The list is empty");
+		}
+		else if (top.getNode() == null)
+		{
+			top = null;
+		}
+		else {
+			top = top.getNode();
+			}
 		
 		// 5. End of code
     }
 	// return the char of the top element
     public char top() {
 		// 6. Filling your code here
-		
+		return top;
 		// 6. End of code
     }
+    
 	// return true if the stack is empty, otherwise, return false;
-    public boolean isEmpty() {
-    	// 7. Filling your code here
-    	
-		
-		// 7. End of code
+    public boolean isEmpty() { 	
+		return top == null;
     }
+    
     // return the number of elements in the stack
 	public int size(){
-		// 8. Filling your code here
-		
-		// 8. End of code
+	
 	}
 	//  transfer the stack to a string and return it.
 	// E.g. From bottom to the top, if the chars in stack are 'a', 'e', 'c', '!'. The return shall be "aec!" 
