@@ -23,9 +23,7 @@ public class CharNode<Test> {
 	CharNode(Test data, CharNode<Test> node) {
 		this.data = data;
 		this.node = node;
-		
-		// End of your code
-	
+			
 	}
 	
 	public Test getData() {

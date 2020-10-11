@@ -21,7 +21,10 @@ public class ParenthesesValidator {
 		// An input string is valid if:
 		// (1)	Open brackets must be closed by the same type of brackets.
 		// (2)	Open brackets must be closed in the correct order.
-	public static boolean isValid(String s) {
+	static boolean isValid(String s) {
+		
+		// Using Arrays are faster than using a stack but we will use 
+		// stacks for the excersize
 		HashMap<Character, Character> map = new HashMap<Character, Character>();
 		map.put('(', ')');
 		map.put('[', ']');
@@ -30,12 +33,12 @@ public class ParenthesesValidator {
 		Stack<Character> stack = new Stack<Character>();
 	 
 		for (int i = 0; i < s.length(); i++) {
-			char curr = s.charAt(i);
+			char x = s.charAt(i);
 	 
-			if (map.keySet().contains(curr)) {
-				stack.push(curr);
-			} else if (map.values().contains(curr)) {
-				if (!stack.empty() && map.get(stack.peek()) == curr) {
+			if (map.keySet().contains(x)) {
+				stack.push(x);
+			} else if (map.values().contains(x)) {
+				if (!stack.empty() && map.get(stack.peek()) == x) {
 					stack.pop();
 				} else {
 					return false;
@@ -44,5 +47,6 @@ public class ParenthesesValidator {
 		}
 	 
 		return stack.empty();
+			
 	}
 }

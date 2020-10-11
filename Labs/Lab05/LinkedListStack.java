@@ -25,4 +25,41 @@ public class LinkedListStack {
 	public void push(Test object) {
 		stack.addToTop(object);
 	}
+	
+	public void pop() {
+		
+		if (!isEmpty()) {
+			stack.removeTop();
+		}
+		else {
+			return; 
+		}
+	}
+	
+	public Test peek() {
+		
+		if(!isEmpty())
+		{
+			return (Test) stack.getTop().getInfo();
+		}
+		else {
+			return null;
+		}
+	}
+	
+	public void display() {
+		
+		if (stack != null) {
+			stack.print();
+		}
+	}
+	
+	public boolean isEmpty() {
+		return stack.isEmpty();
+	}
+	
+	
+	public boolean isFull() {
+		return false; 
+	}
 }

@@ -15,12 +15,14 @@ REVISION: --
 package Lab05;
 
 import java.util.Scanner;
+import java.io.File;
+import java.io.FileNotFoundException;
 
 public class main {
 	
 	public static void main(String[] args) throws FileNotFoundException {
 		
-		File file = new file("Example.txt");
+		File file = new File("Example.txt");
 		Scanner text = new Scanner(file);
 		Scanner input = new Scanner(System.in);
 		
@@ -104,7 +106,7 @@ public class main {
 					stack.push(new CharInfo(character));
 					System.out.println("Successfully pushed "+stack.peek()+" onto the stack");
 				}
-					else if (oush == 2) {
+					else if (push == 2) {
 						
 						while (text.hasNextLine()) {
  							String[] split = text.nextLine().split("\\s+");
@@ -158,6 +160,17 @@ public class main {
 	}
 	
 	public static void Parentheses(Scanner text) {
+		
+		System.out.println("Please input a string ot be compared with parenthese.");
+		
+		Scanner input = new Scanner(System.in);
+		
+		String response = input.nextLine();
+		
+		if (ParenthesesValidator.isValid(response)) 
+            System.out.println("Balanced "); 
+        else
+            System.out.println("The String is not Balanced");
 		
 	}
 }
