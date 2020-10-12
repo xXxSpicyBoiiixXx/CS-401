@@ -12,4 +12,5 @@
 
 * Transformer: Change the object in some way.
 
+* Objects are created from classes at run time. They can containt and manipulate data. Multiple objects can be created from the same class definition. 
 
