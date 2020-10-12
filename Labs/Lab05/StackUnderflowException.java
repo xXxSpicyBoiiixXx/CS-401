@@ -1,7 +1,7 @@
 /*
 # FILE: StackUnderflowException.java
 # USAGE: --
-# DESCRIPTION: 
+# DESCRIPTION: Checks for underflow.
 # OPTIONS: --
 # REQUIREMENTS: --
 # BUGS: --
@@ -13,6 +13,9 @@ REVISION: --
 */
 
 package Lab05;
+
+
+// If the stack is empty an error message will appear.
 
 public class StackUnderflowException extends RuntimeException {
 	

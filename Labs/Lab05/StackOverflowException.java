@@ -1,7 +1,7 @@
 /*
 # FILE: StackOverflowflowException.java
 # USAGE: --
-# DESCRIPTION: 
+# DESCRIPTION: Not used in the code as there should not be an overflow but included here just in case.
 # OPTIONS: --
 # REQUIREMENTS: --
 # BUGS: --
@@ -14,6 +14,8 @@ REVISION: --
 
 package Lab05;
 
+
+// Throws error if the stack is overflowing but this should not happen
 public class StackOverflowException extends RuntimeException {
 
     public StackOverflowException() {

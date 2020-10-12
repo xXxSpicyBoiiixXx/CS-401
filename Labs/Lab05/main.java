@@ -1,7 +1,7 @@
 /*
 # FILE: main.java
 # USAGE: --
-# DESCRIPTION: 
+# DESCRIPTION: Driver file for the lab 5 for either a stack or check parentheses.
 # OPTIONS: --
 # REQUIREMENTS: --
 # BUGS: --
@@ -22,14 +22,18 @@ public class main {
 	
 	public static void main(String[] args) throws FileNotFoundException {
 		
+		// Checks if the file "Example.txt" is in the system. Otherwise a file execpetion will be thrown.
 		File file = new File("Example.txt");
 		Scanner text = new Scanner(file);
 		Scanner input = new Scanner(System.in);
 		
+		// Asks the user if they want to implement a stack or validate their string
 		System.out.println("Welcome! Do you want to implement a [S]tack or validate a string for [P]arentheses?");
 		
+		// User input 
 		String SorQorP = input.nextLine();
 		
+		// Validates input from user
 		while(!"SQP".contains(SorQorP)) {
 			
 			System.out.println("!!!INVALID INPUT. PLEASE ENTER [S] FOR STACK OR [P] for Parenthese!!!");
@@ -37,6 +41,7 @@ public class main {
 			
 			}
 		
+		// If "S" will run the stack and "P" for the parentheses valid function. 
 		if (SorQorP.equals("S")) 
 		{
 			Stack(text);
@@ -47,9 +52,13 @@ public class main {
 			Parentheses(text);
 		}
 		
+		input.close();
+		
 	}
 
 	
+	// Stack implementation for user. Will ask the user what they want to implement in their stack. There is a user file that they 
+	// can implement but they can also validate their own input.
 	public static void Stack(Scanner text) {
 		
 		Scanner input = new Scanner(System.in);
@@ -57,7 +66,7 @@ public class main {
 		
 		System.out.println("...Initializing a stack....");
 		
-		LinkedListStack<Character> stack = new LinkedListStack<>();
+		CharStack<Character> stack = new CharStack<>();
 		
 		System.out.println("Character stack created. The stack is currently empty. Please choose an option below.");
 		System.out.println();
@@ -132,7 +141,7 @@ public class main {
 			
 			case "P":
 				if(!stack.isEmpty()) {
-					System.out.println("The top of the stack is: "+stack.peep());
+					System.out.println("The top of the stack is: "+stack.peek());
 					response = " ";
 				}
 				
@@ -157,8 +166,10 @@ public class main {
 					
 				}
 		}
+		input.close();
 	}
 	
+	// Will ask the user to input a string and will return weather the string is balanced or not. 
 	public static void Parentheses(Scanner text) {
 		
 		System.out.println("Please input a string ot be compared with parenthese.");
@@ -167,11 +178,14 @@ public class main {
 		
 		String response = input.nextLine();
 		
-		if (ParenthesesValidator.isValid(response)) 
+		if (ParenthesesValidator.isValid(response)) {
             System.out.println("Balanced "); 
-        else
+		}
+        else {
             System.out.println("The String is not Balanced");
+        }
 		
+		input.close();
 	}
 }
 

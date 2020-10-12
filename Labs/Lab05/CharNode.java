@@ -1,7 +1,7 @@
 /*
 # FILE: CharNode.java
 # USAGE: --
-# DESCRIPTION: 
+# DESCRIPTION: The charcter node for the linked list.
 # OPTIONS: --
 # REQUIREMENTS: --
 # BUGS: --
@@ -20,12 +20,14 @@ public class CharNode<Test> {
 	
 	private CharNode<Test> node;
 	
+	// Intialixing the object node
 	CharNode(Test data, CharNode<Test> node) {
 		this.data = data;
 		this.node = node;
 			
 	}
 	
+	// Gets the data that was pushed in to the node
 	public Test getData() {
 		if (data == null) {
 			throw new StackUnderflowException("Bruh you messed up lmfao.");
@@ -33,6 +35,7 @@ public class CharNode<Test> {
 		return data;
 	}
 	
+	// Gets the enitre node
 	public CharNode getNode() {
 		if (node == null) {
 			return null;
@@ -40,10 +43,12 @@ public class CharNode<Test> {
 		return node;
 	}
 	
+	// Sets the entire data
 	public void setData(Test newData) {
 		this.data = newData;
 	}
 	
+	// Set the node
 	public void setNode(CharNode<Test> newNode) {
 		this.node = newNode;
 	}

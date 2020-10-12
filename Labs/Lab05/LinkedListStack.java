@@ -1,7 +1,7 @@
 /*
 # FILE: LinkedListStack.java
 # USAGE: --
-# DESCRIPTION: 
+# DESCRIPTION: Linked list for the stack, this will correlate with the CharNode file. 
 # OPTIONS: --
 # REQUIREMENTS: --
 # BUGS: --
@@ -14,52 +14,70 @@ REVISION: --
 
 package Lab05;
 
-public class LinkedListStack {
+public class LinkedListStack<Test> {
 
-	private CharStack<Test> stack;
+	CharNode<Test> top;
 	
-	LinkedListStack() {
-		stack = new CharStack<>();
+	// Creation of an empty stack
+	public LinkedListStack(){
+		top = null;
 	}
 	
-	public void push(Test object) {
-		stack.addToTop(object);
-	}
-	
-	public void pop() {
+	// Adds a node on top
+	public void addToTop(Test data) {
 		
-		if (!isEmpty()) {
-			stack.removeTop();
+		CharNode<Test> newNode = new CharNode<>(data, null);
+		
+		if(top == null) {
+			top = newNode;
 		}
 		else {
-			return; 
+			newNode.setNode(top);
+			top = newNode;
 		}
 	}
 	
-	public Test peek() {
+	// Returns the top of the stack, if empty nothing will happen
+	public CharNode getTop() {
+		return top;
+	}
+	
+	public void print() {
 		
-		if(!isEmpty())
-		{
-			return (Test) stack.getTop().getInfo();
+		if(top == null) {
+			return;
 		}
 		else {
-			return null;
+			CharNode<Test> currNode = top;
+			
+			while(currNode.getNode() != null) {
+				System.out.println(currNode.getData());
+				currNode = currNode.getNode();
+			}
+			
+			System.out.println(currNode.getData());
 		}
 	}
 	
-	public void display() {
+	
+	// Pops the top off 
+	public void removeTop() {
 		
-		if (stack != null) {
-			stack.print();
+		if(top == null) {
+			throw new StackUnderflowException("Pop attempted on an empty list");
+		}
+		else if(top.getNode() = null) {
+			top = null;
+		}
+		else {
+			top = top.getNode();
 		}
 	}
 	
+	// Retunrs if the stack is empty
 	public boolean isEmpty() {
-		return stack.isEmpty();
+		return top == null;
 	}
 	
 	
-	public boolean isFull() {
-		return false; 
-	}
 }
