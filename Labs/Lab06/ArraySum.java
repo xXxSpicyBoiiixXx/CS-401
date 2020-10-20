@@ -12,17 +12,39 @@
 REVISION: --
 */
 
-package Lab06;
-public class ArraySum {
-	/**
-	 * Implement a recursive method in arrSumRec method that takes an integer array, two indices as arguements
-	 * calulate the sum from start to end of the array, and return the result.
-	 * Same for arrSumIter with iterative method
-	 */
-	public static int arrSumRec(int[] arr, int start, int end) {
-		// Filling your code here
+import java.util.Random; 
+import java.util.Scanner;
+import java.util.Arrays;
 
-		// End of your code
+public class ArraySum {
+		
+	public static int arrSumRec(int n) {
+	
+	long startTime = System.nanoTime();
+	int start; 
+	int end; 
+
+	int arr[] = new int[n];
+	Random r_num = new Random();
+	
+	Scanner inputStart = new Scanner(System.in);
+	Scanner inputEnd = new Scanner(System.in);
+
+	for(int i = 0; i < n; i++)
+		arr[i] = r_num.nextInt(1000000);
+	
+	System.out.println("Between what indexes would you like to search through?");
+	
+	try{
+		start = inputStart.nextInt();
+		System.out.println("The element of starting index is " + arr[start]);
+		end = inputEnd.nextInt();
+		System.out.print("The element of ending index is " + arr[end]);
+	} catch(ArrayIndexOutOfBoundsException e) {
+
+		System.out.println("The index you entered is invalid");
+		System.out.println("Please eneter and index number between 0 and " + n);
+
 	}
 
 	public static int arrSumIter(int[] arr, int start, int end) {

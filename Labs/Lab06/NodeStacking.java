@@ -12,8 +12,6 @@
 REVISION: --
 */
 
-package Lab06;
-
 public class NodeStacking {
     // use this weight for calculating
     public static int weight = 128;
@@ -28,3 +26,4 @@ public class NodeStacking {
         // End of your code
     }
 }
+
