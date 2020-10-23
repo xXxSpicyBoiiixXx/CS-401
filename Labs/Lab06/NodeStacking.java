@@ -12,18 +12,48 @@
 REVISION: --
 */
 
+import java.util.Scanner;
+
 public class NodeStacking {
-    // use this weight for calculating
-    public static int weight = 128;
 
-    /**
-     * Implement a recursive method that takes row index and column index of a node.
-     * calculate the weight it supports.
-     */
+ // Calculates specific node in the pyramid 
     public static double weightSupporting(int row, int col) {
-        // Filling your code here
+        
+    	int weight; 
+        double support; 
+        
+        int j = 1;
+    	
+        System.out.println("Please input supporting weight");
+        
+        Scanner input = new Scanner(System.in);
+      
+        weight = input.nextInt();
+        support = weight;
+    		
+        // Going through number of rows and columns
+        	for(int i = 1; i <= weight; i=i*2) {
+        		System.out.println("Row: " + j + " "+ weight/i);
+        
+        	// Checks if the column can exists
+        	if(row == j && col > i)
+        	{
+        		System.out.println("No node at that column");
+        		return -1;
+        	}
+        	
+        	// Adds the supporting weight
+        	else if(row >= j && i != 1)
+        	{
+        		support = support + weight/i;
+        	}
+        	
+        	j++;
+     
+        	}
 
-        // End of your code
+        input.close();
+        return support;
+    	
     }
 }
-
