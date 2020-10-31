@@ -12,18 +12,17 @@
 REVISION: --
 */
 
-
-package Lab07;
+// package Lab07;
 
 public class UnderflowException extends RuntimeException
 {
-  public UnderflowException()
-  {
-    super();
-  }
+    public UnderflowException()
+    {
+        super();
+    }
 
-  public UnderflowException(String message)
-  {
-    super(message);
-  }
+    public UnderflowException(String message)
+    {
+        super(message);
+    }
 }

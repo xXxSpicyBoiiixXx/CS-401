@@ -12,17 +12,17 @@
 REVISION: --
 */
 
-package Lab07;
+// package Lab07;
 
 public class OverflowException extends RuntimeException
 {
-  public OverflowException()
-  {
-    super();
-  }
+    public OverflowException()
+    {
+        super();
+    }
 
-  public OverflowException(String message)
-  {
-    super(message);
-  }
+    public OverflowException(String message)
+    {
+        super(message);
+    }
 }
