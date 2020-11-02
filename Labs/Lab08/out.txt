@@ -1,0 +1,24 @@
+The original list:
+[a, b, c, d, e, c, d, f] (Tail = "f")
+
+After removing c, h, and f:
+[a, b, d, e, c, d] (Tail = "d")
+
+[EXCEPTION] Illegal index of 8 passed to CircularList add method.
+
+After adding to index 6 and 8:
+[a, b, d, e, c, d, h] (Tail = "h")
+
+[EXCEPTION] Illegal index of 9 passed to CircularList set method.
+
+After setting k to index 3 and 9:
+[a, b, d, k, c, d, h] (Tail = "h")
+
+The index of d is 2
+The index of p is -1
+The index 5 is d
+
+[EXCEPTION] Illegal index of 0 passed to CircularList remove method.
+
+After several removes:
+[]
