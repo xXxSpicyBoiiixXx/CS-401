@@ -12,7 +12,7 @@
 REVISION: --
 */
 
-package Lab07;
+// package Lab07;
 
 public class CharNode {
 
@@ -47,4 +47,4 @@ public class CharNode {
 		this.info = info;
 	}
 }
-}
+

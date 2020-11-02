@@ -14,103 +14,76 @@ REVISION: --
 
 public class LinkedListQueue<T> {
 
-    Node<T> head;
+    // Using the linked list for our queue
+    private LinkedList<T> queue;
 
-    public LinkedListQueue(){
-        head = null;
-    }
-    /**
-     * linked list implementing queu
-    //private LLForLab4<T> queue;
-     * constructor method to create empty que
-     */
-   LLQueueForLab4() {
-       queue = new LinkedListQueue<>();
-
-   }
-    /**
-     * adds an element to the end of the queue
-     * @param element element to be added
-     */
-    void enqueue(T element) {
-        Node<T> newNode = new Node<>(info, null);
-        if(head == null){
-            head = newNode;
-        }
-        else {
-            Node currNode = head;
-            while(currNode.getNode() != null) {
-                currNode = currNode.getNode();
-            }
-
-            currNode.setNode(newNode);
-        }
+    // Constructing an empty queue
+    LinkedListQueue() {
+        queue = new LinkedList<>();
     }
 
-    /**
-     * removes element from front of queue
+    /*
+     * Adds an object to th end of the queue
+     * @param element, whatever the elements is it will be added
+     */
+    void enqueue(T element){
+        queue.addToTail(element);
+    }
+
+    /*
+     * Dequeue will remove the first element that was inserted
+     * aka also the front of the queue
      */
     void dequeue() {
-        if(head == null){
-            throw new QueueUnderflowException("This is an empty.");
-        }
-        else if(head.getNode() == null)
-        {
-            head = null;
-        }
-        if (!queue.isEmpty()) {
+        if(!queue.isEmpty()){
             queue.removeHead();
-        } else if(head.getNode() == null){
-            head = null;
         }
         else {
-            head = head.getNode();
+            ;
         }
     }
 
-    /**
-     * shows the head of the queue
-     * @return T object that is at the front of the queue
+    /*
+     * SHows the head of the queue
+     * @return T object that is the front of the queue
      */
-    T peek() {
-        if (!head.isEmpty()) {
-            return (T) head.getHead().getData();
-        } else {
+    T peek()
+    {
+        if(!queue.isEmpty()){
+            return (T) queue.getHead().getInfo();
+        }
+        else{
             return null;
         }
     }
 
-    /**
-     * checks if queue is empty
-     * @return true if queue is empty, false otherwise
+    /*
+     * Checks if the queue is empty
+     * @ return true if the queue is empty, false otherwise
      */
-    boolean isEmpty() {
-        return head == null;
+
+    boolean isEmpty(){
+        return queue.isEmpty();
     }
 
-    /**
-     * checks if queue is full, but since it's a linked list and cannot be full, always returns false
+    /*
+     * Checks if the queue is full
+     * This is meaningless unless we have an array made queue
      * @return false
      */
-    public boolean isFull() {
+
+    public boolean isFull(){
         return false;
     }
 
-    /**
-     * displays the queue
+    /*
+     * Displays the queue in use
      */
-    public void display() {
-        if(head == null)
-        {
-            ;
-        }
-        else {
-            Node<T> currNode = head;
-            while(currNode.getNode() != null){
-                System.out.println(currNode.getData());
-                currNode = currNode.getNode();
-            }
-            System.out.println(curNode.getData());
+
+    public void display(){
+        if(queue != null){
+            queue.print();
         }
     }
 }
+
