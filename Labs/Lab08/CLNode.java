@@ -1,25 +1,32 @@
+/*
+# FILE: CLNode.java
+# USAGE: --
+# DESCRIPTION: Node of the program
+# OPTIONS: --
+# REQUIREMENTS: --
+# BUGS: --
+# AUTHOR: xXxSpicyBoiiixXx (Md Ali)
+# ORGANIZATION: --
+# VERSION: 1.0
+# CREATED: 11/06/2020
+REVISION: --
+*/
+
+// Singly linked node, which stores a reference to its elements and subsequent node in the list.
 public class CLNode<T> {
-    protected CLNode<T> link;
-    protected T info;
 
-    public CLNode(T info) {
-        this.info = info;
-        link = null;
-    }
+  public T information;
+  public CLNode<T> next;
 
-    public void setInfo(T info) {
-        this.info = info;
-    }
+  public CLNode(T information)
+  {
+      this.information = information;
+      this.next = null;
+  }
 
-    public T getInfo() {
-        return info;
-    }
-
-    public void setLink(CLNode<T> link) {
-        this.link = link;
-    }
-
-    public CLNode<T> getLink() {
-        return link;
-    }
+  public CLNode(T information, CLNode<T> next)
+  {
+      this.information = information;
+      this.next = next;
+  }
 }
