@@ -12,42 +12,216 @@
 REVISION: --
 */
 
+/*
+ * DoublyLinkedList.java, this is offers a list of functions for this data structure,
+ * all the functionality is shown below.
+ */
+
 public class DoublyLinkedList<T> {
-    private DoubleLinkedNode<T> head = null;
-    private DoubleLinkedNode<T> tail = null;
+    DoubleLinkedNode<T> head;
+    DoubleLinkedNode<T> tail;
     public int size = 0;
+
+    public DoublyLinkedList(){
+        head = null;
+        tail = null;
+    }
+
+    public void insertAtStart(T element){
+
+        DoubleLinkedNode<T> newNode = new DoubleLinkedNode<>(element);
+
+        if(head == null){
+
+            newNode.next = null;
+            newNode.previous = null;
+            head = newNode;
+            tail = newNode;
+            size++;
+        }
+
+        else{
+            newNode.next = head;
+            newNode.previous = null;
+            head.previous = newNode;
+            head = newNode;
+            size++;
+        }
+    }
+
+    public void insertAtTail(T element){
+
+        DoubleLinkedNode<T> newNode = new DoubleLinkedNode<>(element);
+
+        if(tail == null){
+
+            newNode.next = null;
+            newNode.previous = null;
+            head = newNode;
+            tail = newNode;
+            size++;
+        }
+
+        else{
+
+            tail.next = newNode;
+            newNode.next = null;
+            newNode.previous = tail;
+            tail = newNode;
+            size++;
+        }
+    }
+
+    public void insertAtIndex(T element, int index){
+
+        if(index < 0 || index > size) {
+            throw new IllegalArgumentException("Index is Invalid");
+        }
+
+        if(index == 0){
+            insertAtStart(element);
+        }
+
+        else if(index == size - 1){
+            insertAtTail(element);
+        }
+
+        else{
+
+            DoubleLinkedNode<T> currentNode = head;
+
+            for(int i = 0; i < index; i++){
+                currentNode = currentNode.next;
+            }
+
+            DoubleLinkedNode<T> previousNode = currentNode.previous;
+            DoubleLinkedNode<T> newNode = new DoubleLinkedNode<>(element);
+            newNode.next = currentNode;
+            newNode.previous = previousNode;
+            previousNode.next = newNode;
+            currentNode.previous = newNode;
+            size++;
+
+        }
+    }
+
+    public void traverseForward(){
+        DoubleLinkedNode<T> temp = head;
+
+        while(temp != null){
+            System.out.println(temp.info);
+            temp = temp.previous;
+        }
+    }
+
+    public void tranverseBackward(){
+        DoubleLinkedNode<T> temp = tail;
+
+        while(temp != null) {
+            System.out.println(temp.info);
+            temp = temp.previous;
+        }
+    }
+
+    public int size(){
+        return size;
+    }
+
+    public boolean isEmpty() {
+        return size == 0;
+    }
+
+    public DoubleLinkedNode<T> searchByIndex(int index){
+
+        if(index < 0 || index >= size) {
+            throw new IndexOutOfBoundsException("Invalid Index");
+        }
+
+        DoubleLinkedNode<T> temp = head;
+        for(int i = 0; i < index; i++){
+            temp = temp.next;
+        }
+        return temp;
+    }
+
+    public DoubleLinkedNode<T> searchByValue(T element){
+
+        DoubleLinkedNode<T> temp = head;
+
+        while(null != temp.next && temp.info != element){
+            temp = temp.next;
+        }
+
+        if(temp.info == element){
+            return temp;
+        }
+
+        return null;
+    }
+
+    public void deleteFromHead(){
+        if(head == null){
+            return;
+        }
+        DoubleLinkedNode<T> temp = head;
+
+        head = temp.next;
+        head.previous = null;
+        size--;
+    }
+
+    public void deleteFromTail(){
+
+        if(tail == null){
+            return;
+        }
+
+        DoubleLinkedNode<T> temp = tail;
+        tail = temp.previous;
+        tail.next = null;
+        size--;
+    }
+
+    public void deleteFromIndex(int index){
+        if(index < 0 || index >= size){
+            throw new IllegalArgumentException("Invalid Index");
+        }
+
+        DoubleLinkedNode<T> nodeDeleted = head;
+
+        for(int i = 0; i < index; i++){
+            nodeDeleted = nodeDeleted.next;
+        }
+
+        DoubleLinkedNode<T> previousNode = nodeDeleted.previous;
+        DoubleLinkedNode<T> nextNode = nodeDeleted.next;
+
+        previousNode.next = nextNode;
+        nextNode.previous = previousNode;
+        size--;
+    }
+
+    public Object[] toArray(){
+        Object[] result = new Object[size];
+        int i = 0;
+
+        for(DoubleLinkedNode<T> counter = head; counter != null; counter = counter.next){
+            result[i++] = counter.info;
+        }
+        return result;
+    }
 
 
   /*  // Create a node using the input newInfo and add this before the head
     public void push(char newInfo) {
         DoubleLinkedNode insertAtStart = new DoubleLinkedNode(newInfo, null, null);
-        if(head == null) {
-            head = insertAtStart;
-            tail = head;
-        }
 
-        else{
-            head.setPrevious(insertAtStart);
-            insertAtStart.setNext(head);
-            head = insertAtStart;
-        }
-        size++;
-    }
+
 
     // Create a node using the input newInfo and add this after the tail
     public void append(char newInfo) {
         DoubleLinkedNode insertAtEnd = new DoubleLinkedNode(newInfo, null, null);
-        if(head == null){
-            head = insertAtEnd;
-            tail = head;
-        }
 
-        else{
-            insertAtEnd.setPrevious(tail);
-            tail.setNext(insertAtEnd);
-            tail = insertAtEnd;
-        }
-        size++;
     }
 
     // Create a node using the input newInfo and add this node before a given node
