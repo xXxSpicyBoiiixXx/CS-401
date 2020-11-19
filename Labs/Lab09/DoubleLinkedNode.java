@@ -1,4 +1,4 @@
-/*
+0/*
 # FILE: DoubleLinkedNode.java
 # USAGE: --
 # DESCRIPTION:
@@ -12,23 +12,51 @@
 REVISION: --
 */
 
-/*
- * DoubleLinkedNode<T> this is a node for the doubly linked list
- * This can accept various data types e.g. int, double, string, boolean, etc.
- * @param T
- */
 public class DoubleLinkedNode<T> {
-    T info;
-    DoubleLinkedNode<T> previous;
-    DoubleLinkedNode<T> next;
+    private T info;
+    private DoubleLinkedNode<T> previous;
+    private DoubleLinkedNode<T> next;
 
-    public DoubleLinkedNode(T info) {
+    public DoubleLinkedNode() {
+        info = null;
+        previous = null;
+        next = null;
+    }
+
+    public void setNodeInfo(T info) {
         this.info = info;
     }
 
-    @Override
+    public void setPrevNode(DoubleLinkedNode<T> node) {
+        this.previous = node;
+    }
+
+    public void setNextNode(DoubleLinkedNode<T> node) {
+        this.next = node;
+    }
+
+    public T getNodeInfo(T info) {
+        return this.info;
+    }
+
+    public DoubleLinkedNode<T> getPrevNode(DoubleLinkedNode<T> node) {
+        return this.previous;
+    }
+
+    public DoubleLinkedNode<T> getNextNode(DoubleLinkedNode<T> node) {
+        return this.next;
+    }
+
     public String toString() {
-        return String.valueOf(info);
+
+        String str = "";
+
+        try {
+            str = info.toString();
+        } catch (NullPointerException e) {
+            str = "Empty AF";
+        }
+        return str;
     }
 }
 

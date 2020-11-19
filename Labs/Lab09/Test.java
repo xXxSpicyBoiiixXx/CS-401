@@ -7,7 +7,7 @@ public class Test {
 		double[] points = {2.5,2.5,2.5,2.5,2.5,2.5,2.5,2.5};
 		int index = -1;
 		double grade = 0;
-//		1. public void push(char newInfo)
+//		public void push(char newInfo)
 		{
 			index ++;
 			int count = 0;
@@ -85,7 +85,7 @@ public class Test {
 		
 //		4. public void delete(DoubleLinkedCharNode node)
 		{
-			index ++;
+			index++;
 			int count = 0;
 			System.out.println(String.format("Block %d", index+1));
 			DoublyLinkedCharList l = new DoublyLinkedCharList();
