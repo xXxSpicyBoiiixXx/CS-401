@@ -11,5 +11,5 @@ clean:
 	$(RM) *.class
 
 run:
-	$(JR) main
+	$(JR) Main
 
