@@ -130,10 +130,9 @@ public class SortingArray {
         }
     }
 
-    void mergeSort(int arr[])
+    void mergeSort(int arr[], int n)
     {
         long startTime = System.nanoTime();
-        int n = arr.length;
 
         if(n < 2) {
             return;
@@ -202,6 +201,7 @@ public class SortingArray {
     void quickSort(int arr[], int low, int high)
     {
         long startTime = System.nanoTime();
+        int n = arr.length;
 
         if(low < high)
         {
