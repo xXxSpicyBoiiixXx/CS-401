@@ -1,0 +1,11 @@
+SUN#Sol#10 May 2445
+MER#Mercury#1 December 2122
+VEN#Venus#19 October 2099
+ETH#Earth#03 April 2036
+LUN#Moon#05 February 2037
+AST#Astroid Belt#07 July 2077
+JUP#Jupiter#10 August 2056
+SAT#Saturn#6 March 2058
+URN#Uranus#22 January 2111
+NEP#Neptune#31 December 2298
+PLU#Pluto#23 November 2331
