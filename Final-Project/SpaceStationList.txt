@@ -1,11 +1,13 @@
-SUN#Sol#10 May 2445
-MER#Mercury#1 December 2122
-VEN#Venus#19 October 2099
-ETH#Earth#03 April 2036
-LUN#Moon#05 February 2037
-AST#Astroid Belt#07 July 2077
-JUP#Jupiter#10 August 2056
-SAT#Saturn#6 March 2058
-URN#Uranus#22 January 2111
-NEP#Neptune#31 December 2298
-PLU#Pluto#23 November 2331
+Sol#SUN#10 May 2445#The Sun#15,766,334#Sol or more commonly known as "The City of the Sun",with the inhabitants of the Sun would consider themselves the people of the star. They are cunning and intelligent but lack in all other aspects. The people on this station have come to the techniques of harvesting the Sun's energy to have what seems to be an unlimited amount of energy and are able to control where to take that energy as a whole. Without the Sun, there will be no Solar System and all the other inhabitants in this Solar System requires the need for the people of the star. They have survived this long as a space station and continue to do so with their advance technology and strive for knowledge. Please be warned, this station moves to sunspots to avoid overusing heat equalizers to keep the station running.
+Messenger#MER#1 December 2122#Mercury#304,517#Messenger, or more commonly known as "Ying and Yang" is known to be plagued as a criminal outpost. This station used to be used for research purposes for the planet Mercury but was quickly overran by pirates. Now this station is plagued with bandits and drifters who govern themselves. The people who inhabit Messenger are tough and resilient due to Mercury's harsh temperatures that range from -300F to 800F. This is due to that the planet has a side that always faces the Sun and one that always faces away from the Sun. The station is located on the dark side of Mercury. The people here lack unity in their station and offer nothing in return to the solar system as a whole. This is where you will get things that you are unable to get at other stations, as in illegal or banned items in this star cluster. Be careful here as murder, violence, theft, and rape are very common here.
+Venera#VEN#19 October 2099#Venus#12,607,112#Venera, or more commonly known as "The City of Love" ----
+Columbus#ETH#03 April 2036#Earth#92,540,981,139#Columbus, or more commonly known as "Home" ---
+Jamestown#LUN#05 February 2037#The Moon#548#Jamestown, or more commonly known as "The Moon" is primarily closed off as a special tactical military outpost governed by Earth
+Galileo#AST#07 July 2077#The Asteroid Belt#1,877#Some info
+Cassini#JUP#10 August 2056#Jupiter#2,119,504,632#Some info
+Pioneer#SAT#6 March 2058#Saturn#6,223,554,009#Some Info
+Voyager#URN#22 January 2111#Uranus#43,991,409#Some info
+Trident#NEP#31 December 2298#Neptune#2,943,119,334#Some Info
+New Horizons#KPB#28 April 2254#The Kuiper Belt#49,549#Some Info
+Orbiter#PLU#23 November 2331#Pluto#118,433,228#Some Info
+The Last Frontier#TLF#03 April 2038#Deep Space#Unknown#Some Info
