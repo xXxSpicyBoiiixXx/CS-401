@@ -66,7 +66,7 @@ public class Read_Data {
         boolean choice = true;
         String exit;
 
-        while(choice == true){
+        while(choice){
             System.out.println("Please enter the code: ");
             String code = scanner.nextLine();
             Station station = data.DataMap.get(code.toUpperCase());
