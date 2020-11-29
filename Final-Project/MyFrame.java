@@ -1,6 +1,9 @@
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+import java.io.*;
+import java.nio.Buffer;
+import java.util.Scanner;
 
 public class MyFrame extends JFrame{
 
@@ -15,40 +18,82 @@ public class MyFrame extends JFrame{
     private JLabel lblB = new JLabel("B :");
     private JLabel lblC = new JLabel("C :");
 
+    private JMenuBar mb = new JMenuBar();
+    private JMenu m1 = new JMenu("CS 401");
+    private JMenu m2 = new JMenu("File");
+    private JMenu m3 = new JMenu("Help");
+
+    private JMenuItem m11 = new JMenuItem("About CS 401");
+    private JMenuItem m12 = new JMenuItem("Md Ali");
+    private JMenuItem m13 = new JMenuItem("Nam Nguyen");
+    private JMenuItem m14 = new JMenuItem("About");
+    private JMenuItem m15 = new JMenuItem("Exit");
+
+    private JMenu m21 = new JMenu("Sort");
+    private JMenu m22 = new JMenu("Search");
+    private JMenu m23 = new JMenu("Binary Search Tree");
+    private JMenu m24 = new JMenu("Random Numbers");
+    private JMenu m25 = new JMenu("General Big O Descriptions");
+
+    private JMenu m211 = new JMenu("Array");
+    private JMenu m212 = new JMenu("Linked Lists");
+
+    private JMenuItem m2111 = new JMenuItem("Insertion Sort");
+    private JMenuItem m2112 = new JMenuItem("Bubble Sort");
+    private JMenuItem m2113 = new JMenuItem("Merge Sort");
+    private JMenuItem m2114 = new JMenuItem("Quick Sort");
+
+    private JMenuItem m31 = new JMenuItem("Help");
+    private JMenuItem m32 = new JMenuItem("Acknowledgements");
+    private JMenuItem m33 = new JMenuItem("Space Station Easter Egg");
+
     public MyFrame(){
-        setTitle("Some Example");
-        setSize(400,200);
-        setLocation(new Point(300,200));
-        setLayout(null);
-        setResizable(false);
 
-        initComponent();
+        // Setting Title Stuff
+        setTitle("CS401 Final Project");
+        setSize(500,500);
+        // setLocation(new Point(444,444));
+        //setLayout(null);
+        //setResizable(false);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        //initComponent();
         initEvent();
+
+        // Menu bar setup
+        mb.add(m1);
+        mb.add(m2);
+        mb.add(m3);
+
+        m1.add(m11);
+        m1.add(m12);
+        m1.add(m13);
+        m1.add(m14);
+        m1.add(m15);
+
+        m2.add(m21);
+
+        m21.add(m211);
+        m211.add(m2111);
+        m211.add(m2112);
+        m211.add(m2113);
+        m211.add(m2114);
+        m21.add(m212);
+
+        m2.add(m22);
+        m2.add(m23);
+        m2.add(m24);
+        m2.add(m25);
+
+
+
+        m3.add(m31);
+        m3.add(m32);
+        m3.add(m33);
+        getContentPane().add(BorderLayout.NORTH, mb);
+
     }
 
-    private void initComponent(){
-        btnExit.setBounds(300,130,80,25);
-        btnAdd.setBounds(300,100,80,25);
-
-        txtA.setBounds(100,10,100,20);
-        txtB.setBounds(100,35,100,20);
-        txtC.setBounds(100,65,100,20);
-
-        lblA.setBounds(20,10,100,20);
-        lblB.setBounds(20,35,100,20);
-        lblC.setBounds(20,65,100,25);
-
-        add(btnExit);
-        add(btnAdd);
-
-        add(lblA);
-        add(lblB);
-        add(lblC);
-
-        add(txtA);
-        add(txtB);
-        add(txtC);
-    }
+   //private void updateTextArea(final)
 
     private void initEvent(){
         this.addWindowListener(new WindowAdapter(){
@@ -57,9 +102,18 @@ public class MyFrame extends JFrame{
             }
         });
 
-        btnExit.addActionListener(new ActionListener() {
+        /*m12.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                btnExitClick(e);
+                try {
+                    mdAli(e);
+                } catch (FileNotFoundException fileNotFoundException) {
+                    fileNotFoundException.printStackTrace();
+                }
+            }
+        });*/
+        m15.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                m15(e);
             }
         });
 
@@ -70,7 +124,14 @@ public class MyFrame extends JFrame{
         });
     }
 
-    private void btnExitClick(ActionEvent evt){
+    /*public void mdAli(ActionEvent event) throws FileNotFoundException {
+        Scanner input = new Scanner(new File("/home/mordecai/IdeaProjects/Final-Project/src/mdAli.txt"));
+        while(input.hasNextLine())
+        {
+            System.setOut(input.nextLine());
+        }
+    }*/
+    private void m15(ActionEvent event){
         System.exit(0);
     }
 
