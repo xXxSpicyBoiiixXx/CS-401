@@ -1,75 +1,70 @@
 import java.util.ArrayList;
 
-public class SortingArray {
-
-    /*
-     Selection sort, time complexity is O(n^2) as there are two nested loops
-     @param array[]
-     */
+public class SortingLL {
 
     public static void main(String args[]) {
-        int[] arr = new int[10];
-        arr[0] = 6;
-        arr[1] = 3;
-        arr[2] = 9;
-        arr[3] = 4;
-        arr[4] = 1;
-        arr[5] = 0;
-        arr[6] = 8;
-        arr[7] = 2;
-        arr[8] = 5;
-        arr[9] = 7;
-        selectionSortArray(arr);
-        //bubbleSortArray(arr);
-        //insertionSort(arr);
-       // mergeSort(arr, 10);
-        //quickSort(arr,0,arr.length-1);
+        ArrayList<Integer> arrL = new ArrayList<Integer>(10);
+
+        arrL.add(5);
+        arrL.add(9);
+        arrL.add(1);
+        arrL.add(2);
+        arrL.add(3);
+        arrL.add(0);
+        arrL.add(4);
+        arrL.add(8);
+        arrL.add(7);
+        arrL.add(6);
+
+        selectionSort(arrL);
+        bubbleSort(arrL);
     }
-    static void selectionSortArray(int arr[]) {
-        long startTime = System.nanoTime();
-        int n = arr.length;
+
+    static void selectionSort(ArrayList<Integer> arrL) {
+    long startTime = System.nanoTime();
+    int n = arrL.size();
+
 
         for (int i = 0; i < n - 1; i++) {
 
-            int min_idx = i;
-            for (int j = i + 1; j < n; j++) {
-                if (arr[j] < arr[min_idx]) {
-                    min_idx = j;
-                }
-                int temp = arr[min_idx];
-                arr[min_idx] = arr[i];
-                arr[i] = temp;
+        int min_idx = i;
+        for (int j = i + 1; j < n; j++) {
+            if (arrL.get(j) < arrL.get(min_idx)) {
+                min_idx = j;
             }
 
+            int temp = arrL.get(min_idx);
+            arrL.set(min_idx, arrL.get(i));
+            arrL.set(i, temp);
         }
-
-        for (int i = 0; i < n; i++) {
-            System.out.print(arr[i] + " ");
-        }
-
-        System.out.println();
-        long elapsedTime = System.nanoTime() - startTime;
-        System.out.println("Total execution time of selection sort: " + elapsedTime + " nanoseconds.");
     }
 
+    for (int i = 0; i < n; i++) {
+        System.out.print(arrL.get(i) + " ");
+    }
+
+    System.out.println();
+    long elapsedTime = System.nanoTime() - startTime;
+    System.out.println("Total execution time of selection sort list: " + elapsedTime + " nanoseconds.");
+}
     /*
      Bubble sort, worst case: O(n*n), best case:O(n)
      @param array[]
      */
-    static void bubbleSortArray(int arr[]) {
+    static void bubbleSort(ArrayList<Integer> arrL) {
         long startTime = System.nanoTime();
-        int n = arr.length;
+        int n = arrL.size();
         int i, j, temp;
         boolean swapped;
 
         for (i = 0; i < n - 1; i++) {
             swapped = false;
             for (j = 0; j < n - i - 1; j++) {
-                if (arr[j] > arr[j + 1]) {
+                if (arrL.get(j) > arrL.get(j + 1)) {
                     // Swap arr[j] and arr[j+1]
-                    temp = arr[j];
-                    arr[j] = arr[j + 1];
-                    arr[j + 1] = temp;
+                    temp = arrL.get(j);
+                    arrL.set(j,arrL.get(j+1));
+                    arrL.set(j+1,temp);
                     swapped = true;
                 }
             }
@@ -80,12 +75,12 @@ public class SortingArray {
             }
         }
         for (i = 0; i < n; i++) {
-            System.out.print(arr[i] + " ");
+            System.out.print(arrL.get(i) + " ");
         }
 
         System.out.println();
         long elapsedTime = System.nanoTime() - startTime;
-        System.out.println("Total execution time of bubble sort array: " + elapsedTime + " nanoseconds.");
+        System.out.println("Total execution time of bubble sort list: " + elapsedTime + " nanoseconds.");
     }
 
 /*
@@ -93,7 +88,7 @@ public class SortingArray {
    @param arr[]
  */
 
-    static void insertionSort(int arr[]) {
+    void insertionSort(int arr[]) {
         long startTime = System.nanoTime();
         int n = arr.length;
 
@@ -116,7 +111,7 @@ public class SortingArray {
         }
         System.out.println();
         long elapsedTime = System.nanoTime() - startTime;
-        System.out.println("Total execution time of insertion sort array: " + elapsedTime + " nanoseconds.");
+        System.out.println("Total execution time: " + elapsedTime + " nanoseconds.");
     }
 
     /*
@@ -124,7 +119,7 @@ public class SortingArray {
      @param arr[]
      */
 
-    static void merge(int arr[], int l[], int r[], int left, int right)
+    void merge(int arr[], int l[], int r[], int left, int right)
     {
         int i = 0, j = 0, k = 0;
 
@@ -151,7 +146,7 @@ public class SortingArray {
         }
     }
 
-    static void mergeSort(int arr[], int n)
+    void mergeSort(int arr[], int n)
     {
         long startTime = System.nanoTime();
 
@@ -185,7 +180,7 @@ public class SortingArray {
         }
         System.out.println();
         long elapsedTime = System.nanoTime() - startTime;
-        System.out.println("Total execution time of merge sort array: " + elapsedTime + " nanoseconds.");
+        System.out.println("Total execution time: " + elapsedTime + " nanoseconds.");
     }
 
     /*
@@ -193,7 +188,7 @@ public class SortingArray {
      @param arr[]
      */
 
-    static int partition(int arr[], int low, int high)
+    int partition(int arr[], int low, int high)
     {
         int pivot = arr[high];
         int i = low - 1;
@@ -219,7 +214,7 @@ public class SortingArray {
         return i+1;
     }
 
-    static void quickSort(int arr[], int low, int high)
+    void quickSort(int arr[], int low, int high)
     {
         long startTime = System.nanoTime();
         int n = arr.length;
@@ -232,14 +227,13 @@ public class SortingArray {
             quickSort(arr, index + 1, high);
         }
 
-        if(low == n) {
-            for (int i = 0; i < n; i++) {
-                System.out.print(arr[i] + " ");
-            }
-            System.out.println();
-            long elapsedTime = System.nanoTime() - startTime;
-            System.out.println("Total execution time of quick sort array: " + elapsedTime + " nanoseconds.");
+        for (int i = 0; i < n; i++) {
+            System.out.print(arr[i] + " ");
         }
+        System.out.println();
+        long elapsedTime = System.nanoTime() - startTime;
+        System.out.println("Total execution time: " + elapsedTime + " nanoseconds.");
+
     }
 
 }

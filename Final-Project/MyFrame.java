@@ -43,6 +43,11 @@ public class MyFrame extends JFrame{
     private JMenuItem m2113 = new JMenuItem("Merge Sort");
     private JMenuItem m2114 = new JMenuItem("Quick Sort");
 
+    private JMenuItem m2121 = new JMenuItem("Insertion Sort");
+    private JMenuItem m2122 = new JMenuItem("Bubble Sort");
+    private JMenuItem m2123 = new JMenuItem("Merge Sort");
+    private JMenuItem m2124 = new JMenuItem("Quick Sort");
+
     private JMenuItem m31 = new JMenuItem("Help");
     private JMenuItem m32 = new JMenuItem("Acknowledgements");
     private JMenuItem m33 = new JMenuItem("Space Station Easter Egg");
@@ -77,7 +82,12 @@ public class MyFrame extends JFrame{
         m211.add(m2112);
         m211.add(m2113);
         m211.add(m2114);
+
         m21.add(m212);
+        m212.add(m2121);
+        m212.add(m2122);
+        m212.add(m2123);
+        m212.add(m2124);
 
         m2.add(m22);
         m2.add(m23);
