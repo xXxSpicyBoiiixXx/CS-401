@@ -16,7 +16,7 @@ public class SortingLL {
         arrL.add(7);
         arrL.add(6);
 
-        selectionSort(arrL);
+       // selectionSort(arrL);
         bubbleSort(arrL);
     }
 

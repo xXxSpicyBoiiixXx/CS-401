@@ -3,20 +3,18 @@ import java.awt.*;
 import java.awt.event.*;
 import java.io.*;
 import java.nio.Buffer;
+import java.nio.file.FileAlreadyExistsException;
+import java.nio.file.FileSystemException;
+import java.util.Random;
+import java.util.Scanner;
+import java.util.*;
+import java.io.*;
 import java.util.Scanner;
 
-public class MyFrame extends JFrame{
 
-    private JButton btnAdd = new JButton("Add");
-    private JButton btnExit = new JButton("Exit");
-
-    private JTextField txtA = new JTextField();
-    private  JTextField txtB = new JTextField();
-    private JTextField txtC = new JTextField();
-
-    private JLabel lblA = new JLabel("A :");
-    private JLabel lblB = new JLabel("B :");
-    private JLabel lblC = new JLabel("C :");
+public class MyFrame<arr> extends JFrame{
+    private JTextArea textArea;
+    private PrintStream standardOut;
 
     private JMenuBar mb = new JMenuBar();
     private JMenu m1 = new JMenu("CS 401");
@@ -32,7 +30,6 @@ public class MyFrame extends JFrame{
     private JMenu m21 = new JMenu("Sort");
     private JMenu m22 = new JMenu("Search");
     private JMenu m23 = new JMenu("Binary Search Tree");
-    private JMenu m24 = new JMenu("Random Numbers");
     private JMenu m25 = new JMenu("General Big O Descriptions");
 
     private JMenu m211 = new JMenu("Array");
@@ -58,12 +55,43 @@ public class MyFrame extends JFrame{
         setTitle("CS401 Final Project");
         setSize(500,500);
         // setLocation(new Point(444,444));
-        //setLayout(null);
+        // setLayout(null);
         //setResizable(false);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setLocationRelativeTo(null);
         //initComponent();
         initEvent();
 
+        textArea = new JTextArea(50, 10);
+        textArea.setEditable(true);
+        PrintStream printStream = new PrintStream(new CustomOutputStream(textArea));
+
+        // Keeps the reference of standard output stream
+        standardOut = System.out;
+
+        // Reassigns standard output stream and error output stream
+        System.setOut(printStream);
+        System.setErr(printStream);
+
+        JPanel panel = new JPanel();
+        add(panel);
+
+        JLabel lbl = new JLabel("Select a file to be as data.");
+        lbl.setVisible(true);
+
+        panel.add(lbl);
+
+        String[] choices = {"10 Numbers", "100 Numbers", "1000 Numbers", "Random"};
+
+        JComboBox<String> cb = new JComboBox<String>(choices);
+
+        cb.setVisible(true);
+        panel.add(cb);
+
+        JButton btn = new JButton("OK");
+        panel.add(btn);
+
+        add(new JScrollPane(textArea));
         // Menu bar setup
         mb.add(m1);
         mb.add(m2);
@@ -91,19 +119,28 @@ public class MyFrame extends JFrame{
 
         m2.add(m22);
         m2.add(m23);
-        m2.add(m24);
         m2.add(m25);
-
-
 
         m3.add(m31);
         m3.add(m32);
         m3.add(m33);
         getContentPane().add(BorderLayout.NORTH, mb);
-
+        getContentPane().add(BorderLayout.SOUTH,panel);
     }
 
-   //private void updateTextArea(final)
+    public void actionPerformed(ActionEvent e) throws IOException {
+        JComboBox cb = (JComboBox)e.getSource();
+        String choice = (String)cb.getSelectedItem();
+        updateFile(choice);
+    }
+
+    public void updateFile(String name) throws IOException {
+        if(name.equals("Random"))
+        {
+            int n = Integer.parseInt(JOptionPane.showInputDialog(null,"Please eneter how many random numbers you want to generate: "));
+            RandomNumber.random(n);
+        }
+    }
 
     private void initEvent(){
         this.addWindowListener(new WindowAdapter(){
@@ -112,49 +149,124 @@ public class MyFrame extends JFrame{
             }
         });
 
-        /*m12.addActionListener(new ActionListener() {
+
+
+        m12.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 try {
-                    mdAli(e);
+                    m12(e);
                 } catch (FileNotFoundException fileNotFoundException) {
                     fileNotFoundException.printStackTrace();
                 }
             }
-        });*/
+        });
+
         m15.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 m15(e);
             }
         });
 
-        btnAdd.addActionListener(new ActionListener() {
+        m2111.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                btnAddClick(e);
+                m2111(e);
+            }
+        });
+
+        m2112.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                m2112(e);
+            }
+        });
+
+        m2113.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                m2113(e);
+            }
+        });
+
+        m2114.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                m2114(e);
             }
         });
     }
 
-    /*public void mdAli(ActionEvent event) throws FileNotFoundException {
+    // Reading introduction of Md Ali
+    public void m12(ActionEvent event) throws FileNotFoundException {
         Scanner input = new Scanner(new File("/home/mordecai/IdeaProjects/Final-Project/src/mdAli.txt"));
         while(input.hasNextLine())
         {
-            System.setOut(input.nextLine());
+            System.out.println(input.nextLine());
         }
-    }*/
+        System.out.println();
+    }
+
+    // Succesfully Exits out of the program
     private void m15(ActionEvent event){
         System.exit(0);
     }
 
-    public void btnAddClick(ActionEvent evt){
-        Integer x, y, z;
-        try{
-            x = Integer.parseInt(txtA.getText());
-            y = Integer.parseInt(txtB.getText());
-            z = x + y;
-            txtC.setText(z.toString());
-        }catch(Exception e){
-            System.out.println(e);
-            JOptionPane.showMessageDialog(null, e.toString(), "Error", JOptionPane.ERROR_MESSAGE);
-        }
+    public void m2111(ActionEvent event)
+    {   int[] arr = new int[10];
+        arr[0] = 6;
+        arr[1] = 3;
+        arr[2] = 9;
+        arr[3] = 4;
+        arr[4] = 1;
+        arr[5] = 0;
+        arr[6] = 8;
+        arr[7] = 2;
+        arr[8] = 5;
+        arr[9] = 7;
+      SortingArray.insertionSort(arr);
+    }
+
+    public void m2112(ActionEvent event)
+    {
+        int[] arr = new int[10];
+        arr[0] = 6;
+        arr[1] = 3;
+        arr[2] = 9;
+        arr[3] = 4;
+        arr[4] = 1;
+        arr[5] = 0;
+        arr[6] = 8;
+        arr[7] = 2;
+        arr[8] = 5;
+        arr[9] = 7;
+        SortingArray.bubbleSortArray(arr);
+    }
+
+    public void m2113(ActionEvent event)
+    {
+        int[] arr = new int[10];
+        arr[0] = 6;
+        arr[1] = 3;
+        arr[2] = 9;
+        arr[3] = 4;
+        arr[4] = 1;
+        arr[5] = 0;
+        arr[6] = 8;
+        arr[7] = 2;
+        arr[8] = 5;
+        arr[9] = 7;
+        SortingArray.mergeSortArray(arr, arr.length);
+    }
+
+    public void m2114(ActionEvent event)
+    {
+        int[] arr = new int[10];
+        arr[0] = 6;
+        arr[1] = 3;
+        arr[2] = 9;
+        arr[3] = 4;
+        arr[4] = 1;
+        arr[5] = 0;
+        arr[6] = 8;
+        arr[7] = 2;
+        arr[8] = 5;
+        arr[9] = 7;
+        SortingArray.quickSortArray(arr, 0, arr.length-1);
     }
 }

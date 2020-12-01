@@ -7,7 +7,7 @@ public class SortingArray {
      @param array[]
      */
 
-    public static void main(String args[]) {
+   /* public static void main(String args[]) {
         int[] arr = new int[10];
         arr[0] = 6;
         arr[1] = 3;
@@ -19,11 +19,11 @@ public class SortingArray {
         arr[7] = 2;
         arr[8] = 5;
         arr[9] = 7;
-        selectionSortArray(arr);
-        //bubbleSortArray(arr);
-        //insertionSort(arr);
-       // mergeSort(arr, 10);
-        //quickSort(arr,0,arr.length-1);
+       // selectionSortArray(arr);
+        bubbleSortArray(arr);
+       // insertionSort(arr);
+       //mergeSort(arr, 10);
+       // quickSort(arr,0,arr.length-1);
     }
     static void selectionSortArray(int arr[]) {
         long startTime = System.nanoTime();
@@ -50,7 +50,7 @@ public class SortingArray {
         System.out.println();
         long elapsedTime = System.nanoTime() - startTime;
         System.out.println("Total execution time of selection sort: " + elapsedTime + " nanoseconds.");
-    }
+    } */
 
     /*
      Bubble sort, worst case: O(n*n), best case:O(n)
@@ -85,7 +85,7 @@ public class SortingArray {
 
         System.out.println();
         long elapsedTime = System.nanoTime() - startTime;
-        System.out.println("Total execution time of bubble sort array: " + elapsedTime + " nanoseconds.");
+        System.out.println("Total execution time of bubble sort array: " + elapsedTime + " nanoseconds.\n");
     }
 
 /*
@@ -149,9 +149,10 @@ public class SortingArray {
         {
             arr[k++] = r[j++];
         }
+
     }
 
-    static void mergeSort(int arr[], int n)
+    static void mergeSortArray(int arr[], int n)
     {
         long startTime = System.nanoTime();
 
@@ -175,8 +176,8 @@ public class SortingArray {
             right[i - mid] = arr[i];
         }
 
-        mergeSort(left, mid);
-        mergeSort(right, n - mid);
+        mergeSortArray(left, mid);
+        mergeSortArray(right, n - mid);
 
         merge(arr, left, right, mid, n - mid);
 
@@ -186,7 +187,9 @@ public class SortingArray {
         System.out.println();
         long elapsedTime = System.nanoTime() - startTime;
         System.out.println("Total execution time of merge sort array: " + elapsedTime + " nanoseconds.");
+
     }
+
 
     /*
      Quick Sort, O(n* log(n))
@@ -219,7 +222,7 @@ public class SortingArray {
         return i+1;
     }
 
-    static void quickSort(int arr[], int low, int high)
+    static void quickSortArray(int arr[], int low, int high)
     {
         long startTime = System.nanoTime();
         int n = arr.length;
@@ -228,8 +231,8 @@ public class SortingArray {
         {
             int index = partition(arr, low, high);
 
-            quickSort(arr, low, index - 1);
-            quickSort(arr, index + 1, high);
+            quickSortArray(arr, low, index - 1);
+            quickSortArray(arr, index + 1, high);
         }
 
         if(low == n) {
@@ -238,7 +241,7 @@ public class SortingArray {
             }
             System.out.println();
             long elapsedTime = System.nanoTime() - startTime;
-            System.out.println("Total execution time of quick sort array: " + elapsedTime + " nanoseconds.");
+            System.out.println("Total execution time of quick sort array: " + elapsedTime + " nanoseconds. \n");
         }
     }
 
