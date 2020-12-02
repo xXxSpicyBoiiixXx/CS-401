@@ -4,7 +4,6 @@ public class SortingLL {
 
     public static void main(String args[]) {
         ArrayList<Integer> arrL = new ArrayList<Integer>(10);
-
         arrL.add(5);
         arrL.add(9);
         arrL.add(1);
@@ -20,7 +19,7 @@ public class SortingLL {
         bubbleSort(arrL);
     }
 
-    static void selectionSort(ArrayList<Integer> arrL) {
+    /*static void selectionSort(ArrayList<Integer> arrL) {
     long startTime = System.nanoTime();
     int n = arrL.size();
 
@@ -46,7 +45,7 @@ public class SortingLL {
     System.out.println();
     long elapsedTime = System.nanoTime() - startTime;
     System.out.println("Total execution time of selection sort list: " + elapsedTime + " nanoseconds.");
-}
+}*/
     /*
      Bubble sort, worst case: O(n*n), best case:O(n)
      @param array[]

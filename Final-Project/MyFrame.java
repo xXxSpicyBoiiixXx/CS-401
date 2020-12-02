@@ -73,23 +73,36 @@ public class MyFrame<arr> extends JFrame{
         System.setOut(printStream);
         System.setErr(printStream);
 
+
+        JButton btn = new JButton("OK");
+
+        String[] choices = {"10 Numbers", "100 Numbers", "1000 Numbers", "Random"};
+        JComboBox<String> cb = new JComboBox<String>(choices);
         JPanel panel = new JPanel();
+        JLabel lbl = new JLabel("Select a file to be as data.");
+
         add(panel);
 
-        JLabel lbl = new JLabel("Select a file to be as data.");
         lbl.setVisible(true);
 
         panel.add(lbl);
 
-        String[] choices = {"10 Numbers", "100 Numbers", "1000 Numbers", "Random"};
-
-        JComboBox<String> cb = new JComboBox<String>(choices);
-
         cb.setVisible(true);
         panel.add(cb);
 
-        JButton btn = new JButton("OK");
         panel.add(btn);
+
+        btn.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                String choice = (String) cb.getSelectedItem();
+                try {
+                    assert choice != null;
+                    updateFile(choice);
+                } catch (IOException ioException) {
+                    ioException.printStackTrace();
+                }
+            }
+        });
 
         add(new JScrollPane(textArea));
         // Menu bar setup
@@ -128,20 +141,37 @@ public class MyFrame<arr> extends JFrame{
         getContentPane().add(BorderLayout.SOUTH,panel);
     }
 
-    public void actionPerformed(ActionEvent e) throws IOException {
-        JComboBox cb = (JComboBox)e.getSource();
-        String choice = (String)cb.getSelectedItem();
-        updateFile(choice);
-    }
 
     public void updateFile(String name) throws IOException {
         if(name.equals("Random"))
         {
-            int n = Integer.parseInt(JOptionPane.showInputDialog(null,"Please eneter how many random numbers you want to generate: "));
+            String value = JOptionPane.showInputDialog(null,"Please enter how many random numbers you want to generate: ");
+            int n = Integer.parseInt(value);
             RandomNumber.random(n);
+
+        }
+        /*else
+        {
+
+        }*/
+
+        int print = JOptionPane.showConfirmDialog(null, "Would you like to print out your data?");
+
+        if(print == JOptionPane.YES_OPTION){
+            Scanner input = new Scanner(new File("random.txt"));
+            while(input.hasNextLine())
+            {
+                System.out.println(input.nextLine());
+            }
+            System.out.println();
         }
     }
 
+   /* public String fileToUse(String file) throw IOException{
+        File myObject = new File(file);
+
+
+    }*/
     private void initEvent(){
         this.addWindowListener(new WindowAdapter(){
             public void windowClosing(WindowEvent e){
@@ -155,6 +185,16 @@ public class MyFrame<arr> extends JFrame{
             public void actionPerformed(ActionEvent e) {
                 try {
                     m12(e);
+                } catch (FileNotFoundException fileNotFoundException) {
+                    fileNotFoundException.printStackTrace();
+                }
+            }
+        });
+
+        m13.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                try {
+                    m13(e);
                 } catch (FileNotFoundException fileNotFoundException) {
                     fileNotFoundException.printStackTrace();
                 }
@@ -194,7 +234,16 @@ public class MyFrame<arr> extends JFrame{
 
     // Reading introduction of Md Ali
     public void m12(ActionEvent event) throws FileNotFoundException {
-        Scanner input = new Scanner(new File("/home/mordecai/IdeaProjects/Final-Project/src/mdAli.txt"));
+        Scanner input = new Scanner(new File("mdAli.txt"));
+        while(input.hasNextLine())
+        {
+            System.out.println(input.nextLine());
+        }
+        System.out.println();
+    }
+
+    public void m13(ActionEvent event) throws FileNotFoundException {
+        Scanner input = new Scanner(new File("nnam.txt"));
         while(input.hasNextLine())
         {
             System.out.println(input.nextLine());
@@ -219,7 +268,7 @@ public class MyFrame<arr> extends JFrame{
         arr[7] = 2;
         arr[8] = 5;
         arr[9] = 7;
-      SortingArray.insertionSort(arr);
+      SortingArray.insertionSortArray(arr);
     }
 
     public void m2112(ActionEvent event)

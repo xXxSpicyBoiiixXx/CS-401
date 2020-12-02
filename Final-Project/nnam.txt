@@ -1,0 +1,4 @@
+My name is Nam Nguyen. I'm an international student from Vietnam
+and this is my third year at IIT as an ITM. I'm taking this class
+to complete my minor in database management.
+Github: https://github.com/nnguyen17

@@ -93,7 +93,7 @@ public class SortingArray {
    @param arr[]
  */
 
-    static void insertionSort(int arr[]) {
+    static void insertionSortArray(int arr[]) {
         long startTime = System.nanoTime();
         int n = arr.length;
 

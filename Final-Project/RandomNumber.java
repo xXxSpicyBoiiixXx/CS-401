@@ -13,7 +13,7 @@ public class RandomNumber {
         {
             while(countTwo<1)
             {
-                number=rand.nextInt(100)+1;
+                number=rand.nextInt(1000000)+1;
                 out.print(number);
                 count++;
                 countTwo++;
