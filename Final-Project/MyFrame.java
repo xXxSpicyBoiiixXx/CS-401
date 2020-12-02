@@ -5,6 +5,7 @@ import java.io.*;
 import java.nio.Buffer;
 import java.nio.file.FileAlreadyExistsException;
 import java.nio.file.FileSystemException;
+import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
 import java.util.*;
@@ -15,6 +16,8 @@ import java.util.Scanner;
 public class MyFrame<arr> extends JFrame{
     private JTextArea textArea;
     private PrintStream standardOut;
+
+
 
     private JMenuBar mb = new JMenuBar();
     private JMenu m1 = new JMenu("CS 401");
@@ -29,8 +32,8 @@ public class MyFrame<arr> extends JFrame{
 
     private JMenu m21 = new JMenu("Sort");
     private JMenu m22 = new JMenu("Search");
-    private JMenu m23 = new JMenu("Binary Search Tree");
-    private JMenu m25 = new JMenu("General Big O Descriptions");
+    private JMenuItem m23 = new JMenuItem("Binary Search Tree");
+    private JMenuItem m25 = new JMenuItem("General Big O Descriptions");
 
     private JMenu m211 = new JMenu("Array");
     private JMenu m212 = new JMenu("Linked Lists");
@@ -41,14 +44,32 @@ public class MyFrame<arr> extends JFrame{
     private JMenuItem m2114 = new JMenuItem("Quick Sort");
 
     private JMenuItem m2121 = new JMenuItem("Insertion Sort");
-    private JMenuItem m2122 = new JMenuItem("Bubble Sort");
+    // Some issues with Bubble sort a singular linked list
+    //private JMenuItem m2122 = new JMenuItem("Bubble Sort");
     private JMenuItem m2123 = new JMenuItem("Merge Sort");
     private JMenuItem m2124 = new JMenuItem("Quick Sort");
+
+    private JMenu m221 = new JMenu("Array Search");
+    private JMenu m222 = new JMenu("Linked Lists Search");
+
+    private JMenuItem m2211 = new JMenuItem("Sequential Search");
+    private JMenuItem m2212 = new JMenuItem("Fibonacci Search");
+    private JMenuItem m2213 = new JMenuItem("Jump Search");
+    private JMenuItem m2214 = new JMenuItem("Exponential Search");
+
+    private JMenuItem m2221 = new JMenuItem("Iterative Search");
+    private JMenuItem m2222 = new JMenuItem("Recursive Search");
+
 
     private JMenuItem m31 = new JMenuItem("Help");
     private JMenuItem m32 = new JMenuItem("Acknowledgements");
     private JMenuItem m33 = new JMenuItem("Space Station Easter Egg");
 
+    public List<Integer> arrayList = new ArrayList<Integer>();
+    SortingLL LinkedList = new SortingLL();
+    //Node inputLL = new Node();
+    SearchLinkedList list = new SearchLinkedList();
+    BinarySearchTree bst = new BinarySearchTree();
     public MyFrame(){
 
         // Setting Title Stuff
@@ -126,11 +147,23 @@ public class MyFrame<arr> extends JFrame{
 
         m21.add(m212);
         m212.add(m2121);
-        m212.add(m2122);
+        //m212.add(m2122);
         m212.add(m2123);
         m212.add(m2124);
 
         m2.add(m22);
+
+        m22.add(m221);
+        m221.add(m2211);
+        m221.add(m2212);
+        m221.add(m2213);
+        m221.add(m2214);
+
+        m22.add(m222);
+        m222.add(m2221);
+        m222.add(m2222);
+
+
         m2.add(m23);
         m2.add(m25);
 
@@ -141,27 +174,70 @@ public class MyFrame<arr> extends JFrame{
         getContentPane().add(BorderLayout.SOUTH,panel);
     }
 
-
+    public int searchNum()
+    {
+        int value = Integer.parseInt(JOptionPane.showInputDialog(null, "Please type the number you are looking for"));
+        return value;
+    }
     public void updateFile(String name) throws IOException {
-        if(name.equals("Random"))
-        {
-            String value = JOptionPane.showInputDialog(null,"Please enter how many random numbers you want to generate: ");
+        String file = null;
+        if (name.equals("Random")) {
+            String value = JOptionPane.showInputDialog(null, "Please enter how many random numbers you want to generate: ");
             int n = Integer.parseInt(value);
             RandomNumber.random(n);
+            file = "random.txt";
+        } else if (name.equals("10 Numbers")) {
+            file = "TenNumbers.txt";
+
+        } else if (name.equals("100 Numbers")) {
+            file = "HundredNumbers.txt";
+        } else if (name.equals("1000 Numbers")) {
+            file = "ThousandNumbers.txt";
 
         }
-        /*else
-        {
-
-        }*/
 
         int print = JOptionPane.showConfirmDialog(null, "Would you like to print out your data?");
 
-        if(print == JOptionPane.YES_OPTION){
-            Scanner input = new Scanner(new File("random.txt"));
-            while(input.hasNextLine())
+        if (print == JOptionPane.YES_OPTION) {
+            Scanner input1;
+            Scanner input2;
+            Scanner input3;
+            Scanner input4;
+            assert file != null;
+            input1 = new Scanner(new File(file));
+            input2 = new Scanner(new File(file));
+            input3 = new Scanner(new File(file));
+            input4 = new Scanner(new File(file));
+            while (input1.hasNextLine()) {
+                arrayList.add(Integer.parseInt(input1.nextLine()));
+            }
+            while (input2.hasNextLine()) {
+                LinkedList.push(Integer.parseInt(input2.nextLine()));
+            }
+
+            while (input4.hasNextLine()) {
+                list.push(Integer.parseInt(input4.nextLine()));
+            }
+        while (input3.hasNextLine()) {
+            System.out.println(input3.nextLine());
+        }
+        System.out.println();
+    }
+        else{
+            Scanner input1;
+            Scanner input2;
+            Scanner input4;
+            assert file != null;
+            input1 = new Scanner(new File(file));
+            input2 = new Scanner(new File(file));
+            input4 = new Scanner(new File(file));
+            while(input1.hasNextLine())
             {
-                System.out.println(input.nextLine());
+                arrayList.add(Integer.parseInt(input1.nextLine()));}
+            while(input2.hasNextLine())
+            {LinkedList.push(Integer.parseInt(input2.nextLine()));}
+            while (input4.hasNextLine()) {
+                list.push(Integer.parseInt(input4.nextLine()));
             }
             System.out.println();
         }
@@ -230,6 +306,66 @@ public class MyFrame<arr> extends JFrame{
                 m2114(e);
             }
         });
+
+        m2121.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                m2121(e);
+            }
+        });
+
+        m2123.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                m2123(e);
+            }
+        });
+
+        m2124.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                m2124(e);
+            }
+        });
+
+        m2211.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                m2211(e);
+            }
+        });
+
+        m2212.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                m2212(e);
+            }
+        });
+
+        m2213.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                m2213(e);
+            }
+        });
+
+        m2214.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                m2214(e);
+            }
+        });
+
+        m2221.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                m2221(e);
+            }
+        });
+
+        m2222.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                m2222(e);
+            }
+        });
+
+        m23.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                m23(e);
+            }
+        });
     }
 
     // Reading introduction of Md Ali
@@ -257,65 +393,111 @@ public class MyFrame<arr> extends JFrame{
     }
 
     public void m2111(ActionEvent event)
-    {   int[] arr = new int[10];
-        arr[0] = 6;
-        arr[1] = 3;
-        arr[2] = 9;
-        arr[3] = 4;
-        arr[4] = 1;
-        arr[5] = 0;
-        arr[6] = 8;
-        arr[7] = 2;
-        arr[8] = 5;
-        arr[9] = 7;
+    {
+        Integer[] arr = new Integer[arrayList.size()];
+        arr = arrayList.toArray(arr);
       SortingArray.insertionSortArray(arr);
     }
 
     public void m2112(ActionEvent event)
     {
-        int[] arr = new int[10];
-        arr[0] = 6;
-        arr[1] = 3;
-        arr[2] = 9;
-        arr[3] = 4;
-        arr[4] = 1;
-        arr[5] = 0;
-        arr[6] = 8;
-        arr[7] = 2;
-        arr[8] = 5;
-        arr[9] = 7;
+
+        Integer[] arr = new Integer[arrayList.size()];
+        arr = arrayList.toArray(arr);
         SortingArray.bubbleSortArray(arr);
     }
 
     public void m2113(ActionEvent event)
     {
-        int[] arr = new int[10];
-        arr[0] = 6;
-        arr[1] = 3;
-        arr[2] = 9;
-        arr[3] = 4;
-        arr[4] = 1;
-        arr[5] = 0;
-        arr[6] = 8;
-        arr[7] = 2;
-        arr[8] = 5;
-        arr[9] = 7;
+
+        Integer[] arr = new Integer[arrayList.size()];
+        arr = arrayList.toArray(arr);
         SortingArray.mergeSortArray(arr, arr.length);
     }
 
     public void m2114(ActionEvent event)
     {
-        int[] arr = new int[10];
-        arr[0] = 6;
-        arr[1] = 3;
-        arr[2] = 9;
-        arr[3] = 4;
-        arr[4] = 1;
-        arr[5] = 0;
-        arr[6] = 8;
-        arr[7] = 2;
-        arr[8] = 5;
-        arr[9] = 7;
+
+        Integer[] arr = new Integer[arrayList.size()];
+        arr = arrayList.toArray(arr);
         SortingArray.quickSortArray(arr, 0, arr.length-1);
     }
+
+    public void m2121(ActionEvent event)
+    {
+        LinkedList.insertionSort(LinkedList.head);
+    }
+    public void m2123(ActionEvent event){
+       LinkedList.head = LinkedList.mergeSort(LinkedList.head);
+    }
+
+    public void m2124(ActionEvent event){
+        SortingLL.node n = LinkedList.head;
+        while(n.next != null)
+        n = n.next;
+        LinkedList.sort(LinkedList.head, n);
+    }
+    public void m2211(ActionEvent event)
+    {
+        int n = searchNum();
+        Integer[] arr = new Integer[arrayList.size()];
+        arr = arrayList.toArray(arr);
+        SearchArray.search(arr, n);
+    }
+    public void m2212(ActionEvent event)
+    {
+        int n = searchNum();
+        Integer[] arr = new Integer[arrayList.size()];
+        arr = arrayList.toArray(arr);
+        SearchArray.fibMonaccianSearch(arr,n,arr.length);
+    }
+
+    public void m2213(ActionEvent event)
+    {
+        int n = searchNum();
+        Integer[] arr = new Integer[arrayList.size()];
+        arr = arrayList.toArray(arr);
+        SearchArray.jumpSearch(arr, n);
+    }
+
+    public void m2214(ActionEvent event)
+    {
+        int n = searchNum();
+        Integer[] arr = new Integer[arrayList.size()];
+        arr = arrayList.toArray(arr);
+        SearchArray.fibMonaccianSearch(arr,n,arr.length);
+    }
+    public void m2221(ActionEvent event)
+    {
+        int n = searchNum();
+
+       SearchLinkedList.search(list.head, n);
+
+    }
+
+    public void m2222(ActionEvent event)
+    {
+        int n = searchNum();
+
+        SearchLinkedList.RecursiveSearch(list.head, n);
+    }
+
+    public void m23(ActionEvent event)
+    {
+        Integer[] arr = new Integer[arrayList.size()];
+        arr = arrayList.toArray(arr);
+        for(int i = 0; i < arr.length; i++)
+        {
+            bst.add(arr[i]);
+        }
+        System.out.println("The maximum depth is: " + bst.maxDepth());
+        System.out.println("Inorder Traversal: ");
+        bst.display(Traversal.INORDER);
+        System.out.println("\nPreorder Traversal: ");
+        bst.display(Traversal.PREORDER);
+        System.out.println("\nPostorder Traversal: ");
+        bst.display(Traversal.POSTORDER);
+
+    }
+
 }

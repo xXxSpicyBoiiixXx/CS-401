@@ -1,63 +1,64 @@
+
 import java.util.Scanner;
 
 public class SearchLinkedList {
-    Node head;
+    node head;
 
-    //Inserts a new node at the front of the list 
+    //Inserts a new node at the front of the list
     public void push(int newData) {
-        //Allocate new node and putting data 
-        Node newNode = new Node(newData);
+        //Allocate new node and putting data
+        node newNode = new node(newData);
 
-        //Make next of new node as head 
+        //Make next of new node as head
         newNode.next = head;
 
-        //Move the head to point to new Node 
+        //Move the head to point to new Node
         head = newNode;
     }
 
     // Iterative Search
-    public boolean search(Node head, int x) {
+    public static boolean search(node head, int x) {
         long startTime = System.nanoTime();
-        Node current = head;
+        node current = head;
         while (current != null)
         {
             if (current.data == x) {
                 long elapsedTime = System.nanoTime() - startTime;
-                System.out.println("Total execution time: " + elapsedTime + " nanoseconds.");
+                System.out.println("FOUND! Total execution time: " + elapsedTime + " nanoseconds.");
                 return true;
             }
             current = current.next;
         }
         long elapsedTime = System.nanoTime() - startTime;
-        System.out.println("Total execution time: " + elapsedTime + " nanoseconds.");
+        System.out.println("NOT FOUND! Total execution time: " + elapsedTime + " nanoseconds.");
         return false;
     }
 
     // Recursive Search
-    public boolean RecursiveSearch(Node head, int x) {
+    public static boolean RecursiveSearch(node head, int x) {
         long startTime = System.nanoTime();
-        // Base case 
+        // Base case
         if (head == null) {
             long elapsedTime = System.nanoTime() - startTime;
-            System.out.println("Total execution time: " + elapsedTime + " nanoseconds.");
+            System.out.println("EMPTY LIST! Total execution time: " + elapsedTime + " nanoseconds.");
             return false;
         }
 
-        // If key is present in current node, return true 
+        // If key is present in current node, return true
         if (head.data == x) {
             long elapsedTime = System.nanoTime() - startTime;
-            System.out.println("Total execution time: " + elapsedTime + " nanoseconds.");
+            System.out.println("FOUND! Total execution time: " + elapsedTime + " nanoseconds.");
             return true;
         }
 
         long elapsedTime = System.nanoTime() - startTime;
-        System.out.println("Total execution time: " + elapsedTime + " nanoseconds.");
-        // Recur for remaining list 
+        System.out.println("NOT FOUND! Total execution time: " + elapsedTime + " nanoseconds.");
+        // Recur for remaining list
         return search(head.next, x);
     }
 
     // Call main
-    public static void main(String args[]) {
+  /*  public static void main(String args[]) {
         SearchLinkedList list = new SearchLinkedList();
         Scanner sc = new Scanner(System.in);
 
@@ -87,5 +88,5 @@ public class SearchLinkedList {
         else
             System.out.println("The element is not presented in the Linked List");
 
-    }
+    }*/
 } 

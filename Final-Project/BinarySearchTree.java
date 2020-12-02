@@ -91,6 +91,10 @@ public class BinarySearchTree {
         }
     }
 
+    public void add(int c)
+    {
+        root = recAdd(c, root);
+    }
     public Node recAdd(int c, Node node)
     {
         if(node == null)

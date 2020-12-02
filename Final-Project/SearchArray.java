@@ -3,19 +3,19 @@ import java.util.Scanner;
 
 public class SearchArray {
     //Sequential Search (O(n))
-    public static int search(int arr[], int x) {
+    public static int search(Integer[] arr, int x) {
         long startTime = System.nanoTime();
         int n = arr.length;
 
         for (int i = 0; i < n; i++)  {
             if (arr[i] == x) {
                 long elapsedTime = System.nanoTime() - startTime;
-                System.out.println("Total execution time: " + elapsedTime + " nanoseconds.");
+                System.out.println("Found! Total execution time: " + elapsedTime + " nanoseconds.");
                 return i;
             }
         }
         long elapsedTime = System.nanoTime() - startTime;
-        System.out.println("Total execution time: " + elapsedTime + " nanoseconds.");
+        System.out.println("Not Found! Total execution time: " + elapsedTime + " nanoseconds.");
         return -1;
     }
 
@@ -26,7 +26,7 @@ public class SearchArray {
     }
 
     // Returns the index of x if present, else returns -1
-    public static int fibMonaccianSearch(int arr[], int x, int n) {
+    public static int fibMonaccianSearch(Integer[] arr, int x, int n) {
         long startTime = System.nanoTime();
         int fibMMm2 = 0; // (m-2)'th Fibonacci No.
         int fibMMm1 = 1; // (m-1)'th Fibonacci No.
@@ -70,7 +70,7 @@ public class SearchArray {
             // Element found. return index
             else {
                 long elapsedTime = System.nanoTime() - startTime;
-                System.out.println("Total execution time: " + elapsedTime + " nanoseconds.");
+                System.out.println("Found! Total execution time: " + elapsedTime + " nanoseconds.");
                 return i;
             }
         }
@@ -79,13 +79,13 @@ public class SearchArray {
         if(fibMMm1 == 1 && arr[offset+1] == x)
             return offset+1;
         long elapsedTime = System.nanoTime() - startTime;
-        System.out.println("Total execution time: " + elapsedTime + " nanoseconds.");
+        System.out.println("Not Found! Total execution time: " + elapsedTime + " nanoseconds.");
         // Element not found. return -1
         return -1;
     }
 
     // Jump Search (O(√ n))
-    public static int jumpSearch(int[] arr, int x) {
+    public static int jumpSearch(Integer[] arr, int x) {
         long startTime = System.nanoTime();
         int n = arr.length;
 
@@ -99,7 +99,7 @@ public class SearchArray {
             step += (int)Math.floor(Math.sqrt(n));
             if (prev >= n) {
                 long elapsedTime = System.nanoTime() - startTime;
-                System.out.println("Total execution time: " + elapsedTime + " nanoseconds.");
+                System.out.println("Not Found! Total execution time: " + elapsedTime + " nanoseconds.");
                 return -1;
             }
         }
@@ -111,7 +111,7 @@ public class SearchArray {
             // If reach next block or end of array, element is not present.
             if (prev == Math.min(step, n)) {
                 long elapsedTime = System.nanoTime() - startTime;
-                System.out.println("Total execution time: " + elapsedTime + " nanoseconds.");
+                System.out.println("Not Found! Total execution time: " + elapsedTime + " nanoseconds.");
                 return -1;
             }
         }
@@ -120,11 +120,11 @@ public class SearchArray {
         // If element is found
         if (arr[prev] == x) {
             long elapsedTime = System.nanoTime() - startTime;
-            System.out.println("Total execution time: " + elapsedTime + " nanoseconds.");
+            System.out.println("Found! Total execution time: " + elapsedTime + " nanoseconds.");
             return prev;
         }
         long elapsedTime = System.nanoTime() - startTime;
-        System.out.println("Total execution time: " + elapsedTime + " nanoseconds.");
+        System.out.println("Not Found! Total execution time: " + elapsedTime + " nanoseconds.");
         return -1;
     }
 
@@ -135,7 +135,7 @@ public class SearchArray {
         // If x is present at first location itself
         if (arr[0] == x) {
             long elapsedTime = System.nanoTime() - startTime;
-            System.out.println("Total execution time: " + elapsedTime + " nanoseconds.");
+            System.out.println("FOund! Total execution time: " + elapsedTime + " nanoseconds.");
             return 0;
         }
 
@@ -145,7 +145,7 @@ public class SearchArray {
             i = i*2;
 
         long elapsedTime = System.nanoTime() - startTime;
-        System.out.println("Total execution time: " + elapsedTime + " nanoseconds.");
+        System.out.println("Found! Total execution time: " + elapsedTime + " nanoseconds.");
         // Call binary search for the found range.
         return Arrays.binarySearch(arr, i/2,
                 Math.min(i, n-1), x);
@@ -153,7 +153,7 @@ public class SearchArray {
     }
 
     // Call Main
-    public static void main(String args[])
+    /*public static void main(String args[])
     {
         int n, x;
         Scanner sc=new Scanner(System.in);
@@ -194,5 +194,5 @@ public class SearchArray {
         System.out.println((result1 < 0) ?
                 "Element is not present in array" :
                 "Element is present at index " + result1);
-    }
+    }*/
 }

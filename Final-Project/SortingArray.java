@@ -1,5 +1,3 @@
-import java.util.ArrayList;
-
 public class SortingArray {
 
     /*
@@ -56,7 +54,7 @@ public class SortingArray {
      Bubble sort, worst case: O(n*n), best case:O(n)
      @param array[]
      */
-    static void bubbleSortArray(int arr[]) {
+    static void bubbleSortArray(Integer[] arr) {
         long startTime = System.nanoTime();
         int n = arr.length;
         int i, j, temp;
@@ -93,7 +91,7 @@ public class SortingArray {
    @param arr[]
  */
 
-    static void insertionSortArray(int arr[]) {
+    static void insertionSortArray(Integer[] arr) {
         long startTime = System.nanoTime();
         int n = arr.length;
 
@@ -111,8 +109,8 @@ public class SortingArray {
             }
             arr[j + 1] = key;
         }
-        for (int i = 0; i < n; i++) {
-            System.out.print(arr[i] + " ");
+        for (Integer integer : arr) {
+            System.out.print(integer + " ");
         }
         System.out.println();
         long elapsedTime = System.nanoTime() - startTime;
@@ -124,7 +122,7 @@ public class SortingArray {
      @param arr[]
      */
 
-    static void merge(int arr[], int l[], int r[], int left, int right)
+    static void merge(Integer[] arr, Integer[] l, Integer[] r, int left, int right)
     {
         int i = 0, j = 0, k = 0;
 
@@ -152,7 +150,7 @@ public class SortingArray {
 
     }
 
-    static void mergeSortArray(int arr[], int n)
+    static void mergeSortArray(Integer[] arr, int n)
     {
         long startTime = System.nanoTime();
 
@@ -163,8 +161,8 @@ public class SortingArray {
         // Creating subarrays
         int mid = n/2;
 
-        int[] left = new int[mid];
-        int[] right = new int[n-mid];
+        Integer[] left = new Integer[mid];
+        Integer[] right = new Integer[n-mid];
 
         for(int i = 0; i < mid; i++)
         {
@@ -196,7 +194,7 @@ public class SortingArray {
      @param arr[]
      */
 
-    static int partition(int arr[], int low, int high)
+    static int partition(Integer arr[], Integer low, Integer high)
     {
         int pivot = arr[high];
         int i = low - 1;
@@ -222,7 +220,7 @@ public class SortingArray {
         return i+1;
     }
 
-    static void quickSortArray(int arr[], int low, int high)
+    static void quickSortArray(Integer[] arr, Integer low, Integer high)
     {
         long startTime = System.nanoTime();
         int n = arr.length;

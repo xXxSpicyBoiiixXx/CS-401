@@ -1,7 +1,7 @@
-public class Node {
+public class node {
     int data;
-    Node next;
-    Node(int d)
+    node next;
+    node(int d)
     {
         data = d;
         next = null;
