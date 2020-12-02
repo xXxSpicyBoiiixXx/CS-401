@@ -1,0 +1,5 @@
+This is the Help file.
+
+Just click on the data file below and then click on the File tab for your desired options.
+
+There will be more in the future as this GUI grows and more version come out.

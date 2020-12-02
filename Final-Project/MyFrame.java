@@ -255,7 +255,15 @@ public class MyFrame<arr> extends JFrame{
             }
         });
 
-
+        m11.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                try {
+                    m11(e);
+                } catch (FileNotFoundException fileNotFoundException) {
+                    fileNotFoundException.printStackTrace();
+                }
+            }
+        });
 
         m12.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
@@ -271,6 +279,16 @@ public class MyFrame<arr> extends JFrame{
             public void actionPerformed(ActionEvent e) {
                 try {
                     m13(e);
+                } catch (FileNotFoundException fileNotFoundException) {
+                    fileNotFoundException.printStackTrace();
+                }
+            }
+        });
+
+        m14.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                try {
+                    m14(e);
                 } catch (FileNotFoundException fileNotFoundException) {
                     fileNotFoundException.printStackTrace();
                 }
@@ -366,6 +384,55 @@ public class MyFrame<arr> extends JFrame{
                 m23(e);
             }
         });
+
+        m25.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                try {
+                    m25(e);
+                } catch (FileNotFoundException fileNotFoundException) {
+                    fileNotFoundException.printStackTrace();
+                }
+            }
+        });
+
+        m31.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                try {
+                    m31(e);
+                } catch (FileNotFoundException fileNotFoundException) {
+                    fileNotFoundException.printStackTrace();
+                }
+            }
+        });
+
+        m32.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                try {
+                    m32(e);
+                } catch (FileNotFoundException fileNotFoundException) {
+                    fileNotFoundException.printStackTrace();
+                }
+            }
+        });
+
+        m33.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                try {
+                    m33(e);
+                } catch (FileNotFoundException fileNotFoundException) {
+                    fileNotFoundException.printStackTrace();
+                }
+            }
+        });
+    }
+
+    public void m11(ActionEvent event) throws FileNotFoundException {
+        Scanner input = new Scanner(new File("AboutCS401.txt"));
+        while(input.hasNextLine())
+        {
+            System.out.println(input.nextLine());
+        }
+        System.out.println();
     }
 
     // Reading introduction of Md Ali
@@ -380,6 +447,15 @@ public class MyFrame<arr> extends JFrame{
 
     public void m13(ActionEvent event) throws FileNotFoundException {
         Scanner input = new Scanner(new File("nnam.txt"));
+        while(input.hasNextLine())
+        {
+            System.out.println(input.nextLine());
+        }
+        System.out.println();
+    }
+
+    public void m14(ActionEvent event) throws FileNotFoundException {
+        Scanner input = new Scanner(new File("About.txt"));
         while(input.hasNextLine())
         {
             System.out.println(input.nextLine());
@@ -498,6 +574,42 @@ public class MyFrame<arr> extends JFrame{
         System.out.println("\nPostorder Traversal: ");
         bst.display(Traversal.POSTORDER);
 
+    }
+
+    public void m25(ActionEvent event) throws FileNotFoundException {
+        Scanner input = new Scanner(new File("BigO.txt"));
+        while(input.hasNextLine())
+        {
+            System.out.println(input.nextLine());
+        }
+        System.out.println();
+    }
+
+    public void m31(ActionEvent event) throws FileNotFoundException {
+        Scanner input = new Scanner(new File("Help.txt"));
+        while(input.hasNextLine())
+        {
+            System.out.println(input.nextLine());
+        }
+        System.out.println();
+    }
+
+    public void m32(ActionEvent event) throws FileNotFoundException {
+        Scanner input = new Scanner(new File("ACK.txt"));
+        while(input.hasNextLine())
+        {
+            System.out.println(input.nextLine());
+        }
+        System.out.println();
+    }
+
+    public void m33(ActionEvent event) throws FileNotFoundException {
+        Scanner input = new Scanner(new File("SpaceStationList.txt"));
+        while(input.hasNextLine())
+        {
+            System.out.println(input.nextLine());
+        }
+        System.out.println();
     }
 
 }

@@ -1,0 +1,92 @@
+When we talk about any sorts of Time Complexity,
+we are generally interested in how fast the time
+complexity is growing as function of the input
+size we feed it.
+
+Here we will specifically describe the Big O notation,
+this is where I will describe and rank some common Big
+O complexities
+
+Excellent: O(log n), O(1)
+Fair: O(n)
+Bad: O(n log n)
+Terrible: O(n^2)
+Horrible: O(2^n)
+Extremely Bad: O(n!)
+
+We will go over what we have implemented here
+with Average and Worst complexities.
+
+Data Structure: Array
+
+Average:
+1. Access O(1)
+2. Search O(n)
+3. Insertion O(n)
+4. Deletion O(n)
+
+Worst:
+1. Access O(1)
+2. Search O(n)
+3. Insertion O(n)
+4. Deletion O(n)
+
+Data Structure: Singly-Linked List
+
+Average:
+1. Access O(n)
+2. Search O(n)
+3. Insertion O(1)
+4. Deletion O(1)
+
+Worst:
+1. Access O(n)
+2. Search O(n)
+3. Insertion O(1)
+4. Deletion O(1)
+
+Data Structure: Binary Search Tree
+
+Average:
+1. Access O(log(n))
+2. Search O(log(n))
+3. Insertion O(log(n))
+4. Deletion O(log(n))
+
+Worst:
+1. Access O(n)
+2. Search O(n)
+3. Insertion O(n)
+4. Deletion O(n)
+
+The next few sets are of Array Sorting Algorithm
+with their corresponding Best, Average, and Worst
+time complexities.
+
+Algorithm: Quicksort
+Best: O(n log(n))
+Average: O(n log(n))
+Worst: O(n^2)
+
+Algorithm: Mergesort
+Best: O(n log(n))
+Average: O(n log(n))
+Worst: O(n log(n))
+
+Algorithm: Bubble Sort
+Best: O(n)
+Average: O(n^2)
+Worst: O(n^2)
+
+Algorithm: Insertion Sort
+Best: O(n)
+Average: O(n^2)
+Worst: O(n^2)
+
+Algorithm: Selection Sort
+Best: O(n^2)
+Average: O(n^2)
+Worst: O(n^2)
+
+For the job market please look at the link below
+https://www.bigocheatsheet.com

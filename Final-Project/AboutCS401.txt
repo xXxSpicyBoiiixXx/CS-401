@@ -1,0 +1,9 @@
+About CS 401
+
+This course is an introductory course in data structures.  This course provides theories of how data
+structures can be implemented of software development.  Topics include ADT, array, stack, queue,
+linked list, recursion, binary trees, heap, search, graph, and sorting algorithms. The student
+will build a complex project using the programming techniques and data structures taught in the
+class. Appropriate software engineering techniques are introduced, including object-oriented design,
+programming and testing
+

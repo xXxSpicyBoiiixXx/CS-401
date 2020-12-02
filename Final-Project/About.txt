@@ -1,0 +1,27 @@
+We are tasked with creating a GUI, graphical user interface,
+comparing and running complexity amongst data search algorithms.
+This included some simple sorting techniques, e.g. insertion,
+bubble, merge, and quick sort. The GUI also included a random
+number generator as well as an option to set up a binary search
+tree. There are three files to be able to read from that each of
+them include integers in increments of 10, 100, and 1000, with a
+fourth option of generating a file that  has a user specified for
+the number of numbers that are selected at random from one to a
+million. There is a ReadMe file that will be added to the source
+code on Github and we plan on making a version 2 of this GUI to
+showcase to potential employers of our work. We will discuss in
+detail of each component below in this document and if there are
+any questions or concerns, please let us know.
+
+This final project and the corresponding class, CS 401,
+has taught us about different data structures as well as
+how to implement them within a GUI. This is all done in
+an IDE that support Java and we have added some Easter
+Eggs inside the GUI. The operating system that was used
+is the Linux kernel specifically a Debian flavor of Linux.
+This GUI implementation should work on all Linux and
+possibly on Windows and Mac as well. This is a simple
+implementation to view the different time structures with
+in different sorting, searching, and data structures. We
+would like to thank Dr. Choi as well as Avinash for
+conducting class in these unprecedented times.
