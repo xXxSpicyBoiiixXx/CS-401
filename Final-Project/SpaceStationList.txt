@@ -3,7 +3,7 @@ Messenger#MER#1 December 2122#Mercury#304,517#Messenger, or more commonly known 
 Venera#VEN#19 October 2099#Venus#12,607,112#Venera, or more commonly known as "The City of Love" ----
 Columbus#ETH#03 April 2036#Earth#92,540,981,139#Columbus, or more commonly known as "Home" ---
 Jamestown#LUN#05 February 2037#The Moon#548#Jamestown, or more commonly known as "The Moon" is primarily closed off as a special tactical military outpost governed by Earth
-Galileo#AST#07 July 2077#The Asteroid Belt#1,877#Some info
+Galileo#AST#07 July 2077#The Asteroid Belt#1,877#Hubble, or more commonly known as "The Asteriod Belt" 
 Cassini#JUP#10 August 2056#Jupiter#2,119,504,632#Some info
 Pioneer#SAT#6 March 2058#Saturn#6,223,554,009#Some Info
 Voyager#URN#22 January 2111#Uranus#43,991,409#Some info
